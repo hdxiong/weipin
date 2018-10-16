@@ -1,0 +1,20 @@
+ <wxs module="filters" src="../../wxs/filter.wxs" /> 
+
+<template name="positionItem">
+    
+    <view class="position-title">
+      <image class="img" src="/images/urgent2.png" wx:if="{{isUrgent == 1}}"></image> 
+      <text class="detail title font-34" wx:if="{{workCitySpilt}}">{{positionName}}</text>
+      <text class="list title font-34 ell" wx:else>{{positionName}}</text>
+    </view>
+    <view class="position-tags">
+      <text class="tag">{{workCitySpilt ? workCitySpilt : filters.splitString(workCity)}}</text> 
+      <text class="tag">{{positionType == 1 ? '全职' : positionType == 2 ? '兼职' : '实习'}}</text>
+      <text class="tag" wx:if="{{showSalaryType==2}}">{{positionSalaryLowest}}-{{positionSalaryHighest}}</text>
+      <text class="tag" wx:else>{{positionSalaryLowest}}k-{{positionSalaryHighest}}k</text>
+    </view>
+    <view class="time-number">
+      <view class="time font-gray-26">发布时间 : {{createTime}} </view>
+      <view class="number font-gray-26">浏览次数 :{{views}}人</view>
+    </view>
+</template>

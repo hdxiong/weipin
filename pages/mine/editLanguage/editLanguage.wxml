@@ -1,0 +1,45 @@
+<import src="/template/toast/toast.wxml" />
+
+<header title="编辑语种" showBack='1' position="fixed"></header>
+<view class="language-wrap" style="margin-top:64px;">
+    <view class="form-title">沟通也是门手艺</view>
+    <view class="weui-cells weui-cells_after-title" wx:for="{{model}}" wx:key="index">
+      <view class="weui-cell weui-cell_input name-input">
+        <view class="weui-cell__hd">
+            <view class="weui-label">语种</view>
+        </view> 
+        <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请填写语种名称" name="languageSkill" value="{{item.languageSkill}}" data-index="{{index}}" data-event="input" bindinput="operateInput" />
+        </view>
+        <view class="weui-icon-clear" wx:if="{{item.languageSkill.length > 0}}" data-index="{{index}}" data-event="clear" bindtap="operateInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+       <view class="weui-cell weui-cell_input level-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">掌握程度</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <picker  value="{{item.levelIndex}}" range="{{langLevels}}" data-index="{{index}}" range-key="name" bindchange="bindLevelChange">
+                  <view class="level picker-inner">
+                    <text class="level-val">{{langLevels[item.levelIndex].name}}</text>
+                    <text class="arrow-right"></text>
+                  </view> 
+              </picker>
+          </view>
+      </view>
+      <view class="weui-cell weui-cell_input delete">
+        <view class="weui-cell__bd">
+            <view class="weui-input" data-index="{{index}}" bindtap="del">删除</view>
+        </view>  
+      </view>
+    </view>
+    <view class="add-btn" bindtap="add">
+      <view class="icon-cross"></view>
+      <text class="word" >添加一条语言</text>
+    </view>
+     <button class="save-btn btn-w690" type="primary"  bindtap="save">完成</button>
+</view>
+
+<!-- 自定义toast  -->
+<template is="defineToast" data="{{...deToast}}" />

@@ -1,0 +1,44 @@
+.press-style{
+    background-color: rgba(0,0,0,0.1);
+}
+
+
+
+.extra-super{
+    display: flex;
+    padding-top: 40rpx;
+    height: 400rpx;
+    width: 100%;
+    background-color: white;
+}
+.extra-image-size{
+    width: 114rpx;
+    height: 114rpx
+}
+.extra-text-size{
+    color: #B2B2B2;
+    font-size: 24rpx;
+    margin-top: 10rpx
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flex-row{
+    display: flex;
+}
+.extra-super .img-box{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width:102rpx;
+   height: 102rpx;
+   box-shadow:0px 0px 8rpx 0px rgba(0,0,0,0.1);
+   border-radius: 8rpx;
+}
+.extra-super .img-box image{
+  width:56rpx;
+  height: 56rpx;
+}

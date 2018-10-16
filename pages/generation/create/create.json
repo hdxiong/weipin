@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "login-dialog": "/components/loginDialog/loginDialog",
+    "header": "/components/header/header",
+    "tabbar": "/components/tabbar/tabbar"
+  }
+}

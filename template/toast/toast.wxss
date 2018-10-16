@@ -1,0 +1,13 @@
+@keyframes myfirst
+{
+from {transform:translate(-50%,-100%);}
+50% {transform:translate(-50%,10%);}
+to {transform:translate(-50%,-100%);}
+}
+
+@-webkit-keyframes myfirst 
+{
+from {transform:translate(-50%,-100%);}
+50% {transform:translate(-50%,10%);}
+to {transform:translate(-50%,-100%);}
+}

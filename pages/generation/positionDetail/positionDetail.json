@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#5CB3FF",
+  "navigationBarTextStyle": "#fff",
+  "navigationBarTitleText": "职位详情",
+  "backgroundColor": "#f1f5f8",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "header": "/components/header/header"
+  }
+}

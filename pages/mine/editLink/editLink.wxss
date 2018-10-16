@@ -1,0 +1,8 @@
+@import '/style/editResume.wxss';
+
+.link-input .weui-label::before{
+  display: none;
+}
+.textarea-weui-cells{
+  margin-top:24rpx;
+}

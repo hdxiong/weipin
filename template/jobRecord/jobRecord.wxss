@@ -1,0 +1,38 @@
+.record-item{
+  padding:30rpx;
+  margin-bottom:25rpx;
+  background: #ffffff;
+}
+.positionName{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6rpx;
+}
+.positionName .text{
+  flex:1;
+}
+.positionName .status{
+   height: 45rpx;
+  line-height: 45rpx;
+  padding-left:8rpx;
+  padding-right:8rpx;
+  background-color: #E8F1F8;
+  font-size:26rpx;
+  color: #5AA2E7;
+  border-radius: 6rpx;
+}
+.positionName .status_fail{
+  background-color: #FFEAEA;
+  color: #F96868;
+}
+.companyName{
+  display: flex;
+  align-items: center;
+  margin-bottom: 6rpx;
+}
+.companyName .company_icon{
+  width:30rpx;
+  height: 25rpx;
+  margin-right: 10rpx;
+}

@@ -1,0 +1,69 @@
+<import src="/template/toast/toast.wxml" />
+
+<header title="编辑求职意愿" showBack='1' position="fixed"></header>
+<view class="aspiration" style="margin-top:64px;">
+    <view class="form-title">告诉我们你更想成为的那个</view>
+     <view class="weui-cells weui-cells_after-title">
+         <view class="weui-cell weui-cell_input expect-position-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">期望职能</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请填写期望职能" value="{{model.expectPosition}}" data-event="input" bindinput="operateInput" />
+          </view>
+          <view class="weui-icon-clear" wx:if="{{model.expectPosition.length > 0}}"  data-event="clear" bindtap="operateInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+      </view>
+       <view class="weui-cell weui-cell_input work-type-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">工作类型</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <picker  value="{{workTypeIndex}}" range="{{workTypes}}" range-key="name" bindchange="bindWorkTypeChange">
+                  <view class="sex picker-inner">
+                    <text class="sex-val">{{workTypes[workTypeIndex].name}}</text>
+                    <text class="arrow-right"></text>
+                  </view> 
+              </picker>
+          </view>
+      </view>
+      <view class="weui-cell weui-cell_input expect-place-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">期望城市</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <picker mode="region"  bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+                <view class="picker-inner">
+                   <text class="placeholder" wx:if="{{!model.expectPlace}}">请选择期望城市</text> 
+                    <text class="place" wx:else>{{region[0]}}  {{region[1]}}</text>   
+                  <text class="arrow-right"></text>
+                </view>
+              </picker>
+          </view>
+      </view>
+      <view class="weui-cell weui-cell_input salary-input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">期望月薪</view>
+          </view> 
+          <view class="weui-cell__bd">
+               <picker mode="multiSelector"  range="{{salaryRange}}" value="{{salaryValue}}"  bindchange="bindSalaryChange" bindcolumnchange="columnchange">
+                  <view class="sex picker-inner">
+                    <text class="placeholder" wx:if="{{!model.minSalary}}">请选择期望月薪范围</text>
+                    <text class="sex-val" wx:else>{{model.minSalary}}k - {{model.maxSalary}}k</text>
+                    <text class="arrow-right"></text>
+                  </view> 
+              </picker> 
+          </view>
+      </view>
+    </view> 
+    <!-- 其他  -->
+      <button class="save-btn btn-w690" type="primary"  bindtap="save">完成</button>
+      <!-- <button class="del-btn btn-w690" type="primary"  bindtap="del">清空数据</button> 
+      <view class="cue">注意：删除的按钮在有数据的时候存在</view>  -->
+
+</view>
+
+
+<!-- 自定义toast  -->
+<template is="defineToast" data="{{...deToast}}" />

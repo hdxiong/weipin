@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<!-- <import src="/template/skeleton/skeleton.wxml" /> -->
+
+ <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto" id="userMotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <button open-type='openSetting'>意见反馈</button>
+  <view class="emojis">
+     <view class="" wx:for="{{emojis}}" wx:key="index">
+       <image src="{{item}}" style="width:60rpx;height:60rpx;"></image>{{index + 1}}
+     </view>
+  </view>
+  <!--  -->
+    <view class="section">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{positionList}}" range-key="position">
+     <view class="picker">
+      当前选择：{{positionList[0].position}}
+    </view> 
+  </picker>
+</view>
+</view> 
+
+  <!-- <template is="skeleton" data="{{skeleton:2}}" />   -->

@@ -1,0 +1,10 @@
+<header title="推广码" showBack='1' position="fixed"></header>
+<view class="page-code">
+   <view class="code-box" catchtap='previewImg'>
+     <image class="img" src="{{codeImg}}" mode="widthFix"></image>
+   </view>
+   <view class="btn-area">
+      <view class="btn-download btn" catchtap='download'>下载</view>
+      <view class="btn-logo btn" catchtap='changeLogo'>更换logo</view>
+   </view>
+</view>

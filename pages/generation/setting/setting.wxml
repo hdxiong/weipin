@@ -1,0 +1,133 @@
+
+  <view class="create-postion-tip" style="display:none;">
+       <text class="fa fa-telegram" ></text>
+       <view class="tip-content">
+          <view class="">您还没有创建职位，微聘小程序可直接投递简历哦！<text  style="color:#5CB3FF;font-size:30rpx;" catchtap='openPositionInfo'>  好的，创建职位再分享 ></text></view>
+       </view>
+       <image class="img" src="/images/icon-close.png" mode="widthFix"  catchtap='closePositionTip' style="width:50rpx;margin-left:10rpx;"></image>
+    </view>
+<view class="mine-wrap">
+  <view class="bg-color"></view>
+  <view class="user-info" wx:if="{{userInfo}}">
+    <image class="img" src="{{userInfo.avatarUrl}}" wx:if="{{userInfo.avatarUrl}}"></image>
+    <image class="img" src="/images/default-portrait.jpg" wx:else></image>
+    <text class="name">{{userInfo.nickName}}</text>
+  </view>
+<!-- 头部区域 -->
+  <view class="head-area">
+    <view class="avator-box">
+        <view class="name">微聘</view>
+        <view class="words">微聘是一款免费的招聘小程序。可以快速制作企业招聘官网，分享招聘信息，是企业开启移动社交招聘的利器。</view>
+        <view class="words">感谢您使用微聘，您的每一次分享，收到的每一份简历，都是我们进步的动力！</view>
+    </view>
+  </view>
+  <!-- 消息 -->
+  <form class="" report-submit='true' bindsubmit='linkTo'>
+    <button class="weui-cells weui-cells_after-title message-cell  remove-button-default-style" form-type='submit'>
+        <view class="weui-cell weui-cell_access" >
+            <view class="weui-cell__bd"><image class="img" src="/images/icon_message.png"></image>消息</view>
+            <view class="message-cell-right" style="font-size: 0">
+                <view class="weui-badge" style="margin-left: 5px;margin-right: 5px;" wx:if="{{notReadCount}}">{{notReadCount}}</view>
+                <view class="arrow-right"></view>
+            </view>
+        </view>
+    </button>
+  </form>
+  <!-- 垂直栏目  -->
+  <view class="content-area">
+    <view class='content-box'>
+     <view class="weui-panel">
+        <view class="weui-panel__hd" style="color:#666666;">我的招聘</view>
+        <view class="weui-panel__bd">
+             <view class="weui-media-box weui-media-box_small-appmsg">
+                <view class="weui-cells weui-cells_in-small-appmsg"> 
+                  <view class='weui-cell weui-cell_access' catchtap='openPositionInfo'>
+                  <!-- <navigator class="weui-cell weui-cell_access" url='../positionInfo/positionInfo'>  -->
+                      <view class="weui-cell__hd"><image src="/images/set_position.png" /></view>
+                      <view class="weui-cell__bd weui-cell_primary">
+                          <view>职位管理<text wx:if="{{showPositionTip}}" style="float:right; color:#999999; font-size:28rpx;">尚未添加职位</text></view>
+                      </view>
+                      <view class="arrow-right"></view>
+                  </view>
+                  <view class="weui-cell weui-cell_access" catchtap='openApp'>
+                    <view class="weui-cell__hd"><image src="/images/set_join.png" /></view>
+                    <view class="weui-cell__bd weui-cell_primary">                             
+                        <view>招聘管理</view>                          
+                    </view>
+                    <view class="arrow-right"></view>
+                  </view>                  
+                </view>
+             </view>
+        </view> 
+      </view>
+
+      <view class="weui-panel">
+        <view class="weui-panel__hd" style="color:#666666;">我的求职</view>
+        <view class="weui-panel__bd">
+             <view class="weui-media-box weui-media-box_small-appmsg">
+                <view class="weui-cells weui-cells_in-small-appmsg"> 
+                  <navigator class="weui-cell weui-cell_access" url="../../mine/collect/collect" >
+                      <view class="weui-cell__hd"><image src="/images/set_collect.png" /></view>
+                      <view class="weui-cell__bd weui-cell_primary">
+                          <view>职位收藏</view>
+                      </view>
+                      <view class="arrow-right"></view>
+                  </navigator>
+                  <navigator class="weui-cell weui-cell_access" url="../../mine/jobRecord/jobRecord" >
+                      <view class="weui-cell__hd"><image src="/images/set_record.png" /></view>
+                      <view class="weui-cell__bd weui-cell_primary">
+                          <view>求职记录</view>
+                      </view>
+                      <view class="arrow-right"></view>
+                  </navigator>
+                   <navigator class="weui-cell weui-cell_access" url="../../mine/editPreview/editPreview?pageType=mine" >
+                      <view class="weui-cell__hd"><image src="/images/set_preview.png" /></view>
+                      <view class="weui-cell__bd weui-cell_primary">
+                          <view>个人档案</view>
+                      </view>
+                      <view class="arrow-right"></view>
+                  </navigator>                     
+                </view>
+             </view>
+        </view> 
+      </view>
+
+    </view>
+  </view>
+  <!-- 去生成推广码 -->
+  <!-- <view class="weui-cells weui-cells_after-title gene-code">
+      <view class="weui-cell weui-cell_access" >
+          <view class="weui-cell__hd"><image class="img" src="/images/code.png"></image></view>
+          <view class="weui-cell__bd weui-cell_primary">
+              <view class="text">去生成推广码</view>
+          </view>
+          <view class="arrow-right"></view>
+      </view>
+  </view> -->
+  <view class="weui-cells weui-cells_after-title message-cell gene-code" catchtap='goCodeLogo'>
+        <view class="weui-cell weui-cell_access" >
+            <view class="weui-cell__hd"><image class="img" src="/images/code.png" mode="width"></image></view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view class="text">去生成推广码</view>
+          </view>
+            <view class="message-cell-right" style="font-size: 0">
+                <view class="arrow-right"></view>
+            </view>
+        </view>
+    </view>
+  <view class="share_btn">
+    <form class="form" report-submit="true" bindsubmit="saveFormId">
+      <button open-type='share' form-type="submit">推荐给朋友</button>
+    </form>
+  </view>
+  <!-- 客服  -->
+  <form class="form" report-submit="true" bindsubmit="saveFormId">
+    <button class="btn-contact" open-type='contact' session-from="weapp" form-type="submit">
+        <image class="img" src="/images/icon-contact.png"></image>
+      </button>
+  </form>
+  <!-- 登录弹框  -->
+  <login-dialog id="loginDialog" bind:authPhoneNumberSuccess="authPhoneNumberSuccess"></login-dialog>
+</view>
+<!-- <tabbar currentIndex='1'></tabbar> -->
+

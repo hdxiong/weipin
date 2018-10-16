@@ -1,0 +1,12 @@
+{
+  "navigationBarBackgroundColor": "#5CB3FF",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "企业详情",
+  "backgroundColor": "#f1f5f8",
+  "backgroundTextStyle": "light",
+  "onReachBottomDistance":90,
+  "usingComponents": {
+    "header": "/components/header/header",
+    "authUserInfo": "/components/authUserInfo/authUserInfo"
+  }
+}

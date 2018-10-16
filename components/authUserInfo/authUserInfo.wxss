@@ -1,0 +1,49 @@
+.auth-mask{
+  position: fixed;
+  z-index: 999;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(0,0,0,0.8);
+}
+.auth-mask .auth-box{
+  position: fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height: 300rpx;
+  background:#ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.auth-tips{
+  padding-top:40rpx;
+  font-size:28rpx;
+  color: #999999;
+  margin-bottom: 80rpx;
+}
+
+/* 去掉button默认样式 */
+.remove-button-default-style{
+    padding:0;
+    margin:0;
+    line-height: 1.5;
+    background: transparent;
+    text-align: left;
+    border-radius:0;
+}
+.remove-button-default-style::after{
+    border:0;
+}
+.auth-box .auth-btn{
+   width:500rpx;
+   height: 70rpx;
+   line-height: 70rpx;
+   text-align: center;
+   border-radius: 40rpx;
+   background: #1AAD19;
+   font-size: 26rpx;
+   color: #ffffff;
+}

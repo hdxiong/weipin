@@ -1,0 +1,155 @@
+
+/*  全局filter函数集合  */
+
+/**
+ * 切割字符串
+ * @param {String} str - 含逗号字符串
+ */
+function splitString(str){ 
+  if (str && typeof str == "string") {
+    return str.split(",")[1]
+  } else {
+    return str;
+  }
+}
+
+function formatDate (date, type){
+  if (date == "" || date == null) {
+    return;
+  } else {
+    var d = getDate(date);
+    var newdate = "";
+    if (type == "month") {
+      newdate = d.getFullYear() + "-" + (d.getMonth() > 8 ? d.getMonth() + 1 : "0" + (d.getMonth() + 1));
+    } else if(type == "date"){
+      newdate = d.getFullYear() + "-" + (d.getMonth() > 8 ? d.getMonth() + 1 : "0" + (d.getMonth() + 1)) + "-" + (d.getDate() > 9 ? d.getDate() : "0" + (d.getDate()));
+    }else if (type == "time") {
+      newdate = d.getFullYear() + '-'
+        + (d.getMonth() > 8 ? d.getMonth() + 1 : "0" + (d.getMonth() + 1)) + '-'
+        + (d.getDate() > 9 ? d.getDate() : "0" + (d.getDate()))
+        + " " + (d.getHours() > 9 ? d.getHours() : "0" + d.getHours()) + ":"
+        + (d.getMinutes() > 9 ? d.getMinutes() : "0" + d.getMinutes()) + ":"
+        + (d.getSeconds() > 9 ? d.getMinutes() : "0" + d.getMinutes());
+    } else {
+      newdate = d.getFullYear() + '-'
+        + (d.getMonth() > 8 ? d.getMonth() + 1 : "0" + (d.getMonth() + 1)) + '-'
+        + (d.getDate() > 9 ? d.getDate() : "0" + (d.getDate()));
+    }
+    return newdate
+  }
+}
+
+/**
+ * 时间戳转日期格式
+ * @param {number} timestamp - 时间戳
+ * return 日期 eg: 2018-01-01 12:12:12
+ */
+function timestampToDate(timestamp){
+  var date = getDate(timestamp)
+  return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds()
+
+}
+
+/**
+ * 职位申请状态
+ * @param {number} item - 枚举值
+ * return 状态
+ */
+function applyStatus(item){
+  if (item == 0) {
+    item = '简历提交成功'
+  } else if (item == 2) {
+    item = 'HR将移入备选库'
+  } else if (item == 3) {
+    item = 'HR发送面试邀约'
+  } else if (item == 4) {
+    item = 'HR发送offer'
+  } else if (item == 5) {
+    item = 'R将移入爽约库'
+  } else if (item == 6) {
+    item = 'HR录用'
+  } else if (item == 7) {
+    item = 'HR将简历移入淘汰库'
+  } else if (item == 8) {
+    item = 'HR将移入人才储备库'
+  } else if (item == 9) {
+    item = 'HR重新发送面试邀约'
+  } else if (item == 10) {
+    item = 'HR下载简历(查看完整简历)'
+  } else if (item == 11) {
+    item = 'HR将移入新简历库'
+  } else if (item == 12) {
+    item = 'HR查看了简历'
+  } else {
+    item = 'HR确认该offer到岗'
+  }
+  return item;
+}
+
+function replaceArea (str) {
+  if(str){
+    var reg = getRegExp('-', 'g');
+    return str.replace(reg, '');
+  }else{
+    return '';
+  }
+}
+
+/**
+ *  工作经验枚举值对应的值
+ */
+function enumWorkYear(state){
+  switch(state){
+    case 1:
+      return '经验不限';
+    case 2:
+      return '应届';
+    case 3:
+      return '1年以下';
+    case 4:
+      return '1-3年';
+    case 5:
+      return '3-5年';
+    case 6:
+      return '5-10年';
+    case 7:
+      return '10年以上';
+    default:
+      break;
+  }
+}
+
+/**
+ *  学历枚举值对应的值
+ */
+function enumEducation(state) {
+  switch (state) {
+    case 1:
+      return '学历不限';
+    case 2:
+      return '高中以下';
+    case 3:
+      return '大专';
+    case 4:
+      return '本科';
+    case 5:
+      return '硕士';
+    case 6:
+      return '博士';
+    case 7:
+      return '高中';
+    default:
+      break;
+  }
+}
+
+
+module.exports = {
+  splitString: splitString,
+  formatDate: formatDate,
+  timestampToDate: timestampToDate,
+  applyStatus:applyStatus,
+  replaceArea: replaceArea,
+  enumWorkYear: enumWorkYear,
+  enumEducation: enumEducation
+}

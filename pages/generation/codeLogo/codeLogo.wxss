@@ -1,0 +1,42 @@
+
+page{
+  height: auto;
+}
+.page-code{
+  width:710rpx;
+  height: 1073rpx;
+  margin:84px auto 0;
+  background:url('https://aijuhr.com/images/xcx/wp_code-bg.png') left top no-repeat;
+  background-size: 100%;
+}
+.code-box{
+  width:326rpx;
+  height: 326rpx;
+  padding-top:240rpx;
+  margin:0rpx auto 208rpx;
+}
+.code-box .img{
+  width:100%;
+}
+.btn-area{
+  display: flex;
+  justify-content: center;
+}
+.btn-area .btn{
+  height: 64rpx;
+  line-height: 64rpx;
+  padding-left:32rpx;
+  padding-right:32rpx;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+}
+.btn-area .btn-download{
+  background:rgba(92,179,255,1);
+  margin-right: 24rpx;
+  color: #ffffff;
+}
+.btn-area .btn-logo{
+  background: #ffffff;
+  color: #5CB3FF;
+  border:1rpx solid rgba(92,179,255,1);
+}

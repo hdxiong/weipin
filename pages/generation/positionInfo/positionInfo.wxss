@@ -1,0 +1,112 @@
+@import "/template/footer/footer.wxss";
+@import "/template/step/step.wxss";
+@import "/template/position/position.wxss";
+
+.position-info{
+  background-color: #F8F8FC;
+  /* margin-bottom:94rpx; */
+  min-height: calc(100% - 100rpx);
+}
+.section__hd{
+  display: flex;
+  height: 98rpx;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 30rpx;
+}
+.section__hd .title{
+  color: #000;
+  font-size:34rpx;
+}
+.section__bd{
+  padding: 46rpx 32rpx 32rpx 32rpx;
+}
+.position-list-wrap .position{
+  padding:30rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  position: relative;
+}
+.position-list-wrap .position+.position{
+  margin-top:24rpx;
+}
+.position .time-number{
+  justify-content: space-between;
+}
+.position .time-number .time{
+   width:380rpx;
+}
+.position .time-number .operation-area{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+.position .time-number .operation-area .word-btn{
+  font-size:24rpx;
+  color: #999999;
+}
+.no-position{
+  height: 640rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size:28rpx;
+  color: #999999;
+  margin-top:100rpx;
+}
+.no-position .img{
+  width:320rpx;
+  margin-bottom:60rpx;
+}
+.no-position .words{
+  font-size:28rpx;
+  color:#999999;
+}
+.addPostion_btn{
+  width: 360rpx;
+  margin: 0 auto;
+  padding-top: 65rpx;
+}
+.addPostion_btn button{
+  background-color: #5CB3FF;
+  color: #fff;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.position-title,.position-tags{
+  margin-bottom: 30rpx;
+}
+.position-title .title{
+  font-size: 32rpx;
+  color: #565454;
+  font-weight: 500;
+  flex: 1;
+}
+.position-title .tag{
+  color: #FF566B;
+  font-size: 34rpx;
+  flex: 1;
+  text-align: right;
+}
+.position .more-right{
+  width: 60rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 0;
+  top: 12rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.more-right .dian{
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background-color: #c7c7cc;
+}
+page,page .footer{
+  background-color: #F8F8FC;
+}

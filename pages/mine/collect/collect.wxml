@@ -1,0 +1,32 @@
+<!--pages/mine/collect/collect.wxml-->
+<wxs module="filters" src="../../../wxs/filter.wxs" />
+
+<header title="收藏职位" showBack='1' position="fixed"></header>
+<view class="collect-wrap" wx:for="{{collection}}" wx:key="index">
+  <view class='collect'>
+    <image src='/images/icon-company.png'></image>
+    <text class=''>{{item.companyName}}</text>
+  </view>
+  <view class='position' wx:for="{{item.posiList}}" wx:key="id" wx:for-index="index2" wx:for-item="item2" catchtap="goDetail" data-item='{{item2}}'>
+    <view class="position-title">
+      <image class="img" src="/images/urgent2.png" wx:if="{{item2.isUrgent == 1}}"></image>
+      <text class="title font-34 ell">{{item2.positionName}}</text>
+      <image src='/images/personal_stars.png' class='personal_stars' catchtap="cancelCollect" data-id='{{item2.id}}'></image>
+      <!-- <image src='/images/personal_stars2.png' class='personal_stars'></image> -->
+    </view>
+    <view class="position-tags">
+      <text class="tag">{{item2.workCity}}</text> 
+      <text class="tag">{{item2.positionType}}</text>
+      <text class="tag">{{item2.salary}}</text>
+    </view>
+    <view class="time-number">
+      <view class="time font-gray-26">发布时间 : {{item2.publishTime}} </view>
+      <view class="number font-gray-26">浏览次数 :{{item2.positionVisit || ''}}人</view>
+    </view>
+  </view>
+</view>
+
+<view class="no_collect"  wx:if="{{!(collection&&collection.length!=0)}}">
+  <image src='/images/placeholder-collect2.png' mode='widthFix'></image>
+  <view class="text">您还没有职位收藏，赶快去找找热门职位吧！</view>
+</view>

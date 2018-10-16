@@ -1,0 +1,46 @@
+
+<import src="/template/skeleton/skeleton.wxml" />
+
+<header title="职位详情" showBack='1' color="blue" position="fixed"></header>
+<view class="page-wrap" wx:if="{{!loading}}" style="margin-top:64px;">
+  <view class='position-detail_hd_bg'></view>
+  <view class='position_info'>
+    <view class='position_name'>{{positionName}}</view>
+    <view class='position_salary'>
+      <text class='salary'>{{salary}}</text>
+      <text class='pople_num'>{{posiNum == "不限"?posiNum:posiNum+'人'}}</text>
+    </view>
+    <view class='position_tags'>
+      <text class='tag'>{{workCity}}</text>
+      <text class='tag'>{{workYear}}</text>
+      <text class='tag'>{{educationRequire}}</text>
+      <text class='tag'>{{positionTypeStr}}</text>
+    </view>
+    <view class='position_company border_top' wx:if="{{companyName}}" catchtap='linkTo'>
+      <view class='company_name ell'>{{companyName || ''}}</view>
+      <view class='company_title'>
+        <text>{{industryStr || ''}}</text>
+        <text>{{scaleStr || ''}}</text>
+      </view>
+      <view class='company_right'></view>
+    </view>
+  </view>
+  <view class='position_con'>
+    <view class='position_item'>
+      <view class='position_item_title'>职位亮点</view>
+      <view class='position_item_con'>
+        <text class='tag' wx:for="{{positionTags}}" wx:key="index">{{item.name}}</text>
+      </view>
+    </view>
+    <view class='position_item'>
+      <view class='position_item_title'>职位描述</view>
+      <view class='position_item_con desc'>
+        <rich-text nodes="{{positionDesc}}"></rich-text>
+      </view>
+    </view>
+  </view>
+
+
+</view>
+
+<!-- <template is="skeleton" wx:else data="{{skeleton:1}}" />   -->

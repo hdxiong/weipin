@@ -1,0 +1,58 @@
+<header showBack="1" title="创建" position="fixed"></header>
+<view class="page-create">
+  <view class="create-list">
+    <view class="create-item"  wx:if="{{!hasCompany}}">
+      <image class="img" src="/images/create_company.png" mode="widthFix"></image>
+      <view class="btns apply-btns" wx:if="{{companyType == 2}}" catchtap='applyEnter'>
+         <text class='btn' data-ty="1">申请入驻</text><text class="btn" data-ty="2">已入驻</text>
+      </view>
+      <view class="btn" catchtap='linkTo' data-url='1' wx:else>我要创建招聘小程序</view>  
+    </view>
+    <view class="has-create-item" wx:else>
+      <view class="title">{{companyInfo.companyName || ''}}</view>
+      <view class="img-box" catchtap='geneShareImg' data-canvas="firstCanvas">
+        <image class="qr-img" src="{{companyQuickSpQrcode}}"></image>
+      </view>
+      <view class="btns apply-btns" wx:if="{{companyType == 2 && auditStatus !== 1}}" catchtap='applyEnter'>
+         <text class='btn btn-gray'  wx:if="{{auditStatus === 0}}">待审核</text>
+         <!-- <text class='btn btn-gray'  wx:elif="{{auditStatus === 2}}">审核失败</text> -->
+         <text class='btn' data-ty="1" wx:elif="{{auditStatus === null || auditStatus === 2}}">申请入驻</text>
+         <text class="btn" data-ty="2">已入驻</text>
+      </view>
+      <view class="btns" wx:else>
+        <text class="position" catchtap='linkTo' data-url='3'>发布职位</text>
+        <text class="download" catchtap='geneShareImg' data-canvas="firstCanvas">下载</text>
+        <text class="set" catchtap='linkTo' data-url='1' wx:if="{{companyType != 2}}">设置</text>
+      </view>
+       <image class="bg-img" src="/images/create_zp.png" mode="widthFix"></image> 
+    </view>
+    <view class="create-item" catchtap='linkTo' data-url='2' wx:if="{{!hasResume}}">
+      <image class="img" src="/images/create_resume.png" mode="widthFix"></image>
+      <view class="btn">我要创建简历小程序</view>
+    </view>
+     <view class="has-create-item" wx:else>
+      <view class="title">我的简历</view>
+      <view class="img-box" catchtap='geneShareImg' data-canvas="secondCanvas">
+        <image class="qr-img" src="{{resumeQuickSpQrcode}}"></image>
+      </view>
+      <view class="btns">
+        <view class="download" catchtap='geneShareImg' data-canvas="secondCanvas">下载</view>
+        <text class="set" catchtap='linkTo' data-url='2'>设置</text>
+      </view>
+       <image class="bg-img" src="/images/create_qz.png" mode="widthFix"></image> 
+    </view>   
+  </view>
+</view>
+<!-- 登录弹框  -->
+<login-dialog id="loginDialog" bind:authPhoneNumberSuccess="authPhoneNumberSuccess"></login-dialog>
+ <!-- 生成海报 和 canvas 画图区  -->
+<view class='show_img' bindtap="closeShowimg" wx:if='{{showImg}}'>
+  <view class='show_img_con'>
+    <image src='{{showImgurl}}' mode="widthFix"></image>
+  </view>
+  <view bindtap="saveImg" class='show_img_btn'><image src='https://aijuhr.com/images/xcx/dowload.png'></image>保存图片</view>
+</view> 
+<canvas style="width: 750px; height: 1334px;" canvas-id="firstCanvas" class='firstCanvas' ></canvas>
+<canvas style="width: 560px; height: 560px;" canvas-id="secondCanvas" class='firstCanvas' ></canvas>  
+  <!-- tabbar   -->
+<!-- <tabbar currentIndex='2'></tabbar> -->

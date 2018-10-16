@@ -1,0 +1,181 @@
+
+<import src="/template/footer/footer.wxml" />
+
+<header title="简历详情" showBack='1' position="fixed"></header>
+<view class="edit-preview" style="margin-top:64px;">
+  <!-- 基本信息  -->
+  <view class="base-info section">
+    <view class="avatar-box">
+       <image class="avatar-img" wx:if="{{basic.headImg}}" src="{{basic.headImg}}" ></image> 
+       <image class="avatar-img" wx:else src="../../../images/default_avatar2.png" ></image> 
+    </view>
+    <view class="info-box">
+      <view class="" wx:if="{{basic.name}}">
+        <view class="name-sex">
+          <text class="name font-36">{{basic.name}}</text>
+          <image class="icon-sex" src="../../../images/sex_male.png" wx:if="{{basic.sex == 1}}"></image>
+          <image class="icon-sex" src="../../../images/sex_female.png" wx:elif="{{basic.sex == 2}}"></image>
+        </view>
+        <view class="motto ell font-gray-26">{{basic.motto ? basic.motto : ''}}</view>
+        <view class="phone">
+          <image class="icon-phone" src="../../../images/phone.png"></image>
+          <text class="font-gray-26">{{basic.phone}}</text>
+        </view>
+        <view class="email">
+          <image class="icon-email" src="../../../images/email.png"></image>
+          <text class="font-gray-26">{{basic.email}}</text>
+        </view>
+      </view>
+      <view class="no-basic" wx:else>
+        <text>请完善基础信息</text>
+      </view>
+    </view>
+  </view>
+  <!-- 自我介绍  -->
+  <view class="introduce section"  wx:if="{{myEvaluation.myEvaluation}}">
+    <view class="hd">
+      <text class="font-34">自我介绍</text>
+    </view>
+    <view class="bd">
+      <view class="desc-wrap">{{myEvaluation.myEvaluation}}</view>
+    </view>
+  </view>
+  <!-- 工作经历 -->
+  <view class="work-experience section">
+    <view class="hd"><text class="title font-34">工作经历</text></view>
+    <view class="bd">
+      <view class="exp-list" wx:if="{{workHistoryList && workHistoryList.length > 0}}">
+        <view class="exp-item" wx:for="{{workHistoryList}}" wx:key="index">
+          <view class="img-box"><image src="../../../images/company2.png"></image></view>
+          <view class="info">
+            <view class="info-name font-34">{{item.workCompany}}</view>
+            <view class="info-position font-gray-26">{{item.position}}</view>
+            <view class="info-date font-gray-26">{{item.startDateStr + " 至 " + item.endDateStr}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+   <!-- 教育经历 -->
+  <view class="education-experience section">
+    <view class="hd"><text class="title font-34">教育经历</text></view>
+    <view class="bd">
+      <view class="exp-list" wx:if="{{educationHistoryList && educationHistoryList.length > 0}}">
+        <view class="exp-item" wx:for="{{educationHistoryList}}" wx:key="index">
+          <view class="edu-main">
+            <view class="img-box"><image src="../../../images/edu.png"></image></view>
+            <view class="info">
+              <view class="info-name font-34">{{item.graduateSchool}}</view>
+              <view class="info-position font-gray-26">{{item.major}}</view>
+              <view class="info-date font-gray-26">{{item.startDateStr + " 至 " + item.endDateStr}}</view>
+            </view>
+          </view>
+          <view class="desc-wrap" wx:if="{{item.descript}}">教育描述：{{item.descript ? item.descript : ''}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+   <!-- 项目经验 -->
+  <view class="project-experience section"  wx:if="{{projectList && projectList.length > 0}}">
+    <view class="hd"><text class="title font-34">项目经验</text></view>
+    <view class="bd">
+      <view class="exp-list">
+        <view class="exp-item" wx:for="{{projectList}}" wx:key="index">
+          <view class="info">
+            <view class="info-name font-34">{{item.projectName}}</view>
+            <view class="info-date font-gray-26">{{item.startDateStr + " 至 " + item.endDateStr}}</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <!-- 语言 -->
+  <view class="language section"  wx:if="{{languageList && languageList.length > 0}}">
+     <view class="hd">
+      <text class="font-34">语言</text>
+    </view>
+    <view class="bd">
+      <view class="lang-box" wx:for="{{languageList}}" wx:key="index">
+        <text class="circle"></text>
+        <text class="lang font-34">{{item.languageSkill}}</text>
+        <text class="font-gray-24">{{item.languageLevel}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 技能 -->
+  <view class="skills section" wx:if="{{skillList && skillList.length > 0}}">
+     <view class="hd">
+      <text class="font-34">技能</text>
+    </view>
+    <view class="bd">
+      <view class="list">
+        <text class="item" wx:for="{{skillList}}" wx:key="index">{{item.languageSkill}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 证书 -->
+  <view class="certificate section" wx:if="{{certList && certList.length > 0}}">
+     <view class="hd">
+      <text class="font-34">证书</text>
+    </view>
+    <view class="bd">
+      <view class="list">
+        <text class="item" wx:for="{{certList}}" wx:key="index">{{item.qualificationName}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 获得奖项 -->
+  <view class="awards language section" wx:if="{{prizeList && prizeList.length > 0}}">
+     <view class="hd">
+      <text class="font-34">获得奖项</text>
+    </view>
+    <view class="bd">
+       <view class="lang-box" wx:for="{{prizeList}}" wx:key="index">
+        <text class="lang font-34">{{item.qualificationName}}</text>
+        <text class="font-gray-24">{{item.qualificationDateStr}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 个人链接 -->
+  <view class="self-link section" wx:if="{{link.linkUrl || link.linkDescription}}">
+     <view class="hd">
+      <text class="font-34">个人链接</text>
+    </view>
+    <view class="bd">
+      <view class="link">{{link.linkUrl}}</view>
+      <view class="desc font-gray-26"><text>描述：</text><text>{{link.linkDescription}}</text></view>
+    </view>
+  </view>
+  <!-- 求职意愿 -->
+  <view class="job-want section">
+     <view class="hd">
+      <text class="font-34">求职意愿</text>
+    </view>
+    <view class="bd">
+      <view class="want font-34">
+        <text class="key">期望职能</text>
+        <text class="value" wx:if="{{jobpref.expectPosition}}">{{jobpref.expectPosition}}</text>
+        <text class="value unselected" wx:else>未填写</text>
+      </view>
+      <view class="want font-34">
+        <text class="key">工作类型</text>
+        <text class="value" wx:if="{{jobpref.workType > 0}}">{{jobpref.workType== 1 ? '全职' : jobpref.workType == 2 ? '兼职' : '实习'}}</text>
+        <text class="value unselected" wx:else>未选择</text>
+      </view>
+      <view class="want font-34">
+        <text class="key">期望地点</text>
+        <text class="value" wx:if="{{jobpref.expectPlace}}">{{jobpref.expectPlace}}</text>
+        <text class="value unselected" wx:else>未选择</text>
+      </view>
+      <view class="want font-34">
+        <text class="key">期望月薪</text>
+        <text class="value" wx:if="{{jobpref.minSalary && jobpref.maxSalary}}">{{jobpref.minSalary}}K - {{jobpref.maxSalary}}K</text>
+        <text class="value unselected" wx:else>未选择</text>
+      </view>
+    </view>
+  </view>
+  <!-- 页脚 -->
+   <template is="footer" /> 
+</view>
+<view class="flow-btn" catchtap="linkTo">我的简历</view>

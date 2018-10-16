@@ -1,0 +1,20 @@
+<header title="选择城市" showBack='1' position="fixed"></header>
+<view class="page-city">
+  <scroll-view class="list-scroll" scroll-y="true" scroll-into-view="{{jumpNum}}" style="height:{{height}}px" scroll-with-animation="true">
+    <view class="current-city">
+       <view class="hd">定位城市</view>
+       <view class="bd" catchtap='selecteCity' data-city="{{currentCity}}">{{currentCity || ''}}</view>
+    </view>
+    <view class="city-list-wrap">
+      <view wx:for="{{citys}}" wx:key="index"  class="city-list-item" id="{{index}}">
+        <view class="hd">{{index}}</view>
+        <view class="bd">
+          <view class="city-name" wx:for="{{item}}" wx:for-index="idx" wx:for-item="cItem"  wx:key="idx" catchtap='selecteCity' data-city="{{cItem.name}}">{{cItem.name}}</view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="letter-list">
+  <view class="letter" wx:for="{{citys}}" wx:key="index" wx:if="{{index != '热门城市'}}" data-letter="{{index}}" catchtap='selecteLetter'>{{index}}</view>
+</view>

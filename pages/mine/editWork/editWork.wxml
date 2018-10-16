@@ -1,0 +1,106 @@
+<import src="/template/toast/toast.wxml" />
+
+<header title="编辑工作经历" showBack='1' position="fixed"></header>
+<view class="work-history" style="margin-top:64px;">
+    <view class="form-title">每一次，都是全新的蜕变</view>
+    <view class="add-work-wrap">
+       <!-- 公司名称等  -->
+       <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input work-company-input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">公司名称</view>
+            </view> 
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入公司名称" name="workCompany" value="{{workCompany}}" data-type="1" data-event="input" bindinput="operateInput" />
+            </view>
+            <view class="weui-icon-clear" wx:if="{{workCompany.length > 0}}" data-type="1" data-event="clear" bindtap="operateInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input position-input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">职位名称</view>
+            </view> 
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入职位名称" name="position" value="{{position}}" data-type="2" data-event="input" bindinput="operateInput" />
+            </view>
+            <view class="weui-icon-clear" wx:if="{{position.length > 0}}" data-type="2" data-event="clear" bindtap="operateInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input department-input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">部门名称</view>
+            </view> 
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="请输入部门名称" name="position" value="{{workDepartment}}" data-type="3" data-event="input" bindinput="operateInput" />
+            </view>
+            <view class="weui-icon-clear" wx:if="{{workDepartment.length > 0}}" data-type="3" data-event="clear" bindtap="operateInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+      </view>
+      <!-- 开始时间等  -->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input start-date-input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">开始时间</view>
+            </view> 
+            <view class="weui-cell__bd">
+             <picker class="weui-btn" mode="date" fields="month" value="{{workStartDateStr}}" start="1970-01-01" end="2020-12-31"  bindchange="bindStartDateChange">
+                  <view class="start-date picker-inner">
+                    <text class="placeholder" wx:if="{{!workStartDateStr}}">请选择开始时间</text>
+                    <text class="date" wx:else>{{workStartDateStr}}</text>
+                    <text class="arrow-right"></text>
+                  </view>
+              </picker>            
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input end-date-input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">结束时间</view>
+            </view> 
+            <view class="weui-cell__bd">
+              <picker class="weui-btn" mode="date" fields="month" value="{{workEndDateStr}}" start="1970-01-01" end="2020-12-31" disabled="{{isWorking}}"  bindchange="bindEndDateChange">
+                  <view class="end-date picker-inner">
+                    <text class="placeholder" wx:if="{{!workEndDateStr}}">请选择结束时间</text>
+                    <text class="date" wx:else>{{workEndDateStr == "今" ? "至今" : workEndDateStr}}</text>
+                    <text class="arrow-right"></text>
+                  </view>
+              </picker>     
+            </view>
+        </view>
+         <view class="weui-cell weui-cell_input ongoing">
+            <view class="weui-cell__hd">
+                <view class="weui-label">目前在职</view>
+            </view> 
+            <view class="weui-cell__bd" catchtap='toggleWorking'>
+                <label class="weui-cell weui-check__label">
+                      <checkbox class="weui-check" value="{{isWorking}}" checked="{{isWorking}}"/>
+                      <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                          <icon class="weui-icon-checkbox_circle" type="circle" size="20" wx:if="{{isWorking == 0}}"></icon>
+                          <icon class="weui-icon-checkbox_success" type="success" size="20" wx:if="{{isWorking == 1}}"></icon>
+                      </view>
+                      <view class="weui-cell__bd">是</view>
+                  </label>
+            </view>
+        </view>
+      </view>
+      <!-- 描述  -->
+      <view class="weui-cells weui-cells_after-title textarea-weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+              <textarea class="weui-textarea" placeholder="工作描述" maxlength="1000" value="{{descript}}" style="height: 3.3em" bindinput="operateTextarea" />
+              <view class="weui-textarea-counter">{{wordNumber}}/1000</view>
+          </view>
+        </view>
+      </view>
+      <!-- 其他  -->
+      <button class="save-btn btn-w690" type="primary"  bindtap="save">完成</button>
+      <button class="del-btn btn-w690" type="primary"  bindtap="del" wx:if="{{id != 0}}">删除该条工作经历</button> 
+      <!-- <view class="cue">注意：删除的按钮在有数据的时候存在</view>  -->
+    </view>
+</view>
+
+<!-- 自定义toast  -->
+<template is="defineToast" data="{{...deToast}}" />

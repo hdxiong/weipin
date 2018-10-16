@@ -1,0 +1,13 @@
+ <wxs module="filters" src="../../wxs/filter.wxs" /> 
+
+<template name="jobRecord">
+    <view class="positionName">
+      <text class="text font-34 ell">{{positionName}}</text>
+      <text class="status  {{currentStatus=='已淘汰'?'status_fail':''}}">{{currentStatus}}</text>
+    </view>
+    <view class="companyName">
+      <image class="company_icon" src="/images/company3.png"></image>
+      <text class="company_text font-gray-26">{{companyName}}</text>
+    </view>
+    <view class="applyTime font-gray-26">申请时间：{{postTime}}</view>
+</template>  

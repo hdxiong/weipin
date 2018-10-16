@@ -1,0 +1,28 @@
+<!--弹窗-->
+<template name="defineModal">
+  <view class="modal-mask" catchtap="onCancel" hidden="{{!showModal}}"></view>
+
+  <view class="modal-dialog" hidden="{{!showModal}}">
+
+    <view class="modal-title">{{modalTitle}}</view>
+
+    <view class="modal-content">
+
+      <view class="modal-input">
+
+        <input placeholder-class="input-holder" placeholder='{{placeholder}}' value='{{inputVal}}'  bindinput="inputChange" class="input" ></input>
+
+      </view>
+
+    </view>
+
+    <view class="modal-footer">
+
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+
+    </view>
+
+  </view>
+</template>

@@ -1,0 +1,87 @@
+<import src="/template/toast/toast.wxml" />
+
+<header title="编辑基本信息" showBack='1' position="fixed"></header>
+<view class="base-info" style="margin-top:64px;">
+    <view class="form-title">让我们更好的认识你吧</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input name-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">姓名</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请输入完整姓名" name="name" value="{{interviewResumeInfo.name}}" data-type="1" data-event="input" bindinput="operateInput" />
+          </view>
+          <view class="weui-icon-clear" wx:if="{{interviewResumeInfo.name.length > 0}}" data-type="1" data-event="clear" bindtap="operateInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+      </view>
+       <view class="weui-cell weui-cell_input birthday-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">生日</view>
+          </view> 
+          <view class="weui-cell__bd">
+           <picker class="weui-btn" mode="date" value="{{interviewResumeInfo.birthday}}" start="1950-01-01" end="2018-12-31" bindchange="bindBirthdayChange">
+                <view class="birthday picker-inner">
+                  <text class="placeholder" wx:if="{{!interviewResumeInfo.birthday}}">请选择出生年月</text>
+                  <text class="date" wx:else>{{interviewResumeInfo.birthday}}</text>
+                  <text class="arrow-right"></text>
+                </view>
+            </picker>            
+          </view>
+      </view>
+       <view class="weui-cell weui-cell_input sex-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">性别</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <picker  value="{{sexIndex}}" range="{{sexArr}}" range-key="name" bindchange="bindSexChange">
+                  <view class="sex picker-inner">
+                    <text class="placeholder" wx:if="{{interviewResumeInfo.sex != 1 && interviewResumeInfo.sex != 2}}">请选择性别</text>
+                    <text class="sex-val" wx:else>{{sexArr[interviewResumeInfo.sex - 1].name}}</text>
+                    <text class="arrow-right"></text>
+                  </view> 
+              </picker>
+          </view>
+      </view>
+       <view class="weui-cell weui-cell_input email-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">邮箱</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <input class="weui-input {{!legalEmail?'weui-cell_warn':''}}" placeholder="请输入邮箱" name="email" value="{{interviewResumeInfo.email}}" data-type="2" data-event="input" bindinput="operateInput" />
+          </view>
+          <view class="weui-icon-clear" wx:if="{{interviewResumeInfo.email.length > 0}}" data-type="2" data-event="clear" bindtap="operateInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+          <view class="weui-cell__ft" hidden="{{legalEmail}}">
+            <icon type="warn" size="21" color="#E64340"></icon>
+          </view>
+      </view>
+       <view class="weui-cell weui-cell_input phone-input">
+           <view class="weui-cell__hd">
+              <view class="weui-label">手机号</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请输入手机号" maxlength="11" name="phone" value="{{interviewResumeInfo.phone}}" data-type="3" data-event="input" bindinput="operateInput" />
+          </view>
+          <view class="weui-icon-clear" wx:if="{{interviewResumeInfo.phone.length > 0}}" data-type="3" data-event="clear" bindtap="operateInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+           <view class="weui-cell__ft" hidden="{{legalPhone}}">
+            <icon type="warn" size="21" color="#E64340"></icon>
+          </view>
+      </view>  
+    </view>
+    <view class="weui-cells weui-cells_after-title textarea-weui-cells" style="margin-top:40rpx;">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="座右铭：告诉别人你是不同的" maxlength="1000" value="{{interviewResumeInfo.motto}}" style="height: 3.3em" bindinput="operateTextarea" />
+            <view class="weui-textarea-counter">{{wordNumber}}/1000</view>
+        </view>
+      </view>
+    </view>
+    <button class="save-btn btn-w690" type="primary"  bindtap="save">完成</button>
+</view>
+
+<!-- 自定义toast  -->
+<template is="defineToast" data="{{...deToast}}" />

@@ -1,0 +1,94 @@
+<import src="/template/toast/toast.wxml" />
+
+<header title="编辑项目经验" showBack='1' position="fixed"></header>
+<view class="work-history" style="margin-top:64px;">
+    <view class="form-title">有哪些有趣或牛逼的事情也说说吧</view>
+    <view class="add-work-wrap">
+       <!-- 项目名称等  -->
+       <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input work-company-input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">项目名称</view>
+            </view> 
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="你参加了什么项目？"  value="{{projectName}}" data-type="1" data-event="input" bindinput="operateInput" />
+            </view>
+            <view class="weui-icon-clear" wx:if="{{projectName.length > 0}}" data-type="1" data-event="clear" bindtap="operateInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input company-input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">所属企业</view>
+            </view> 
+            <view class="weui-cell__bd">
+                <input class="weui-input" placeholder="项目是属于什么企业？"  value="{{company}}" data-type="2" data-event="input" bindinput="operateInput" />
+            </view>
+            <view class="weui-icon-clear" wx:if="{{company.length > 0}}" data-type="2" data-event="clear" bindtap="operateInput">
+              <icon type="clear" size="14"></icon>
+            </view>
+        </view>
+      </view>
+      <!-- 开始时间等  -->
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input start-date-input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">开始时间</view>
+            </view> 
+            <view class="weui-cell__bd">
+            <picker class="weui-btn" mode="date" fields="month" value="{{startDateStr}}" start="1970-01-01" end="2020-12-31"  bindchange="bindStartDateChange">
+                  <view class="start-date picker-inner">
+                    <text class="placeholder" wx:if="{{!startDateStr}}">请选择开始时间</text>
+                    <text class="date" wx:else>{{startDateStr}}</text>
+                    <text class="arrow-right"></text>
+                  </view>
+              </picker>            
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_input end-date-input">
+            <view class="weui-cell__hd">
+                <view class="weui-label">结束时间</view>
+            </view> 
+            <view class="weui-cell__bd">
+              <picker class="weui-btn" mode="date" fields="month" value="{{endDateStr}}" start="1970-01-01" end="2020-12-31" disabled="{{untilNow}}"  bindchange="bindEndDateChange">
+                  <view class="end-date picker-inner">
+                    <text class="placeholder" wx:if="{{!endDateStr}}">请选择结束时间</text>
+                    <text class="date" wx:else>{{endDateStr == "今" ? "至今" : endDateStr}}</text>
+                    <text class="arrow-right"></text>
+                  </view>
+              </picker>     
+            </view>
+        </view>
+         <view class="weui-cell weui-cell_input ongoing">
+            <view class="weui-cell__hd">
+                <view class="weui-label">进行中</view>
+            </view> 
+            <view class="weui-cell__bd" catchtap='toggleWorking'>
+                <label class="weui-cell weui-check__label">
+                      <checkbox class="weui-check" value="{{untilNow}}" checked="{{untilNow}}"/>
+                      <view class="weui-cell__hd weui-check__hd_in-checkbox">
+                          <icon class="weui-icon-checkbox_circle" type="circle" size="20" wx:if="{{untilNow == 0}}"></icon>
+                          <icon class="weui-icon-checkbox_success" type="success" size="20" wx:if="{{untilNow == 1}}"></icon>
+                      </view>
+                      <view class="weui-cell__bd">是</view>
+                  </label>
+            </view>
+        </view>
+      </view>
+      <!-- 描述  -->
+      <view class="weui-cells weui-cells_after-title textarea-weui-cells">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+              <textarea class="weui-textarea" placeholder="项目描述" maxlength="1000" value="{{projectDescription}}" style="height: 3.3em" bindinput="operateTextarea" />
+              <view class="weui-textarea-counter">{{wordNumber}}/1000</view>
+          </view>
+        </view>
+      </view>
+      <!-- 其他  -->
+      <button class="save-btn btn-w690" type="primary"  bindtap="save">完成</button>
+      <button class="del-btn btn-w690" type="primary"  bindtap="del" wx:if="{{id != 0}}">删除该条工作经历</button> 
+    </view>
+</view>
+
+<!-- 自定义toast  -->
+<template is="defineToast" data="{{...deToast}}" />

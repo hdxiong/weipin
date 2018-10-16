@@ -1,0 +1,121 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.2",
+	"appid": "wxe1b80f48618e9e63",
+	"projectname": "newGeneration2",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 13,
+			"list": [
+				{
+					"id": -1,
+					"name": "index测试用",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "访问用户",
+					"pathName": "pages/generation/avatar/avatar",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "公司详情",
+					"pathName": "pages/home/newHome/newHome",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "创建",
+					"pathName": "pages/generation/create/create",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/generation/setting/setting",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "分享简历详情",
+					"pathName": "pages/mine/preview/preview",
+					"query": "scene=fansId%3D2"
+				},
+				{
+					"id": -1,
+					"name": "重新授权",
+					"pathName": "pages/generation/authorize/authorize",
+					"query": ""
+				},
+				{
+					"id": 7,
+					"name": "职位详情",
+					"pathName": "pages/position/detail/detail",
+					"query": "cId=2&positionId=1275&from=share"
+				},
+				{
+					"id": -1,
+					"name": "直聊",
+					"pathName": "pages/generation/chat/chat",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "首页-职位列表",
+					"pathName": "pages/generation/positionList/positionList",
+					"query": "comPid=9170044"
+				},
+				{
+					"id": 10,
+					"name": "首页-职位列表",
+					"pathName": "pages/generation/positionList/positionList",
+					"query": "comPid=9170044&companyType=1"
+				},
+				{
+					"id": -1,
+					"name": "小程序码打开职位列表",
+					"pathName": "pages/generation/positionList/positionList",
+					"query": "scene=123"
+				},
+				{
+					"id": -1,
+					"name": "公司列表",
+					"pathName": "pages/generation/companyList/companyList",
+					"query": ""
+				},
+				{
+					"id": 13,
+					"name": "职位列表",
+					"pathName": "pages/generation/positionList/positionList",
+					"query": "scene=''"
+				}
+			]
+		}
+	}
+}

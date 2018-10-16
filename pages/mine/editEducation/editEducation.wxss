@@ -1,0 +1,20 @@
+@import '/style/editResume.wxss';
+@import '/template/toast/toast.wxss';
+
+.weui-cells_after-title{
+  margin-bottom: 24rpx;
+}
+.ongoing .weui-label::before{
+  display: none;
+}
+.del-btn{
+  margin-top:30rpx;
+  background-color: #D64949!important;
+}
+.cue{
+  font-size:22rpx;
+  color:#FF19FC;
+  text-align: center;
+  margin-top:42rpx;
+  margin-bottom: 70rpx;
+}

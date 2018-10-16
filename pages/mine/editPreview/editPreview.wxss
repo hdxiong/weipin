@@ -1,0 +1,266 @@
+@import "/template/footer/footer.wxss";
+
+.section{
+  padding-left:30rpx;
+  padding-right:30rpx;
+  background-color: #ffffff;
+  margin-bottom: 24rpx;
+}
+.job-want.section{
+  margin-bottom: 0rpx;
+}
+.section .hd{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 96rpx;
+}
+.icon-edit{
+  width:32rpx;
+  height:32rpx;
+  position: relative;
+}
+/* .icon-edit::before{
+  content: '';
+  position: absolute;
+  top:-10rpx;
+  bottom:-10rpx;
+  right:-10rpx;
+  left:-10rpx;
+  
+} */
+.base-info .icon-edit{
+  position: absolute;
+  top:0;
+  right:0;
+}
+.desc-wrap{
+  padding:16rpx 20rpx;
+  background-color: #F8F8F8;
+  font-size:26rpx;
+  line-height: 38rpx;
+  color: #999999;
+  border:1rpx solid #EEEEEE;
+  border-radius: 2px;
+  word-break: break-all;
+}
+.add-btn{
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  border-top:1rpx solid #e5e5e5;
+  color: #5AA2E7;
+  font-size:32rpx;
+}
+.add-btn .icon-cross{
+  margin-right:30rpx;
+}
+/* 有投递按钮时才设置 */
+.footer{
+  padding-bottom:144rpx;
+} 
+.delivery-btn{
+  position: fixed;
+  bottom:20rpx;
+  left:40rpx;
+  z-index: 1;
+  width:670rpx;
+  height: 94rpx;
+  line-height: 94rpx;
+  text-align: center;
+  font-size: 36rpx;
+  color: #fff;
+  background-color:#5AA2E7;
+  border-radius: 4rpx;
+}
+.mine-edit-preview .footer{
+  padding-bottom:30rpx;
+}
+
+/* 基本信息 */
+.base-info{
+  display: flex;
+  padding-top:24rpx;
+  padding-bottom:24rpx;
+}
+.base-info .avatar-box{
+  width:128rpx;
+  height:128rpx;
+  margin-right:26rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.base-info .avatar-box .avatar-img{
+  width:100%;
+  height:100%;
+  border-radius: 50%;
+  overflow: hidden;
+  
+}
+.base-info .info-box{
+  flex:1;
+  position:relative;
+}
+.base-info .info-box .name-sex{
+  position:relative;
+  margin-bottom: 12rpx;
+}
+.base-info .info-box .name-sex .icon-sex{
+  position: absolute;
+  bottom:10rpx;
+  width:28rpx;
+  height: 28rpx;
+  margin-left:10rpx;
+}
+.base-info .motto,.base-info .phone{
+  margin-bottom: 14rpx;
+}
+.base-info .phone,.base-info .email{
+  display: flex;
+  align-items: center;
+}
+.base-info .phone image{
+  width:30rpx;
+  height:30rpx;
+  margin-right:8rpx;
+}
+.base-info .email image{
+  width:30rpx;
+  height:22rpx;
+  margin-right:8rpx;
+}
+.base-info .info-box .no-basic{
+  display: flex;
+  align-items: center;
+  height: 128rpx;
+  font-size:30rpx;
+  color: #999999;
+}
+/* 自我介绍 */
+.introduce{
+  padding-bottom: 20rpx;
+}
+.introduce .no-desc{
+  text-align: center;
+}
+/* 工作、教育、项目经历 */
+.work-experience .exp-item,.project-experience .exp-item{
+  display: flex;
+  position: relative;
+  margin-top:30rpx;
+  margin-bottom: 60rpx;
+}
+.education-experience .exp-item {
+  margin-top:30rpx;
+  margin-bottom: 60rpx;
+}
+.education-experience .exp-item:last-child{
+  margin-bottom: 30rpx;
+}
+.education-experience .exp-item .edu-main{
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.exp-item:last-child{
+  margin-bottom: 30rpx;
+}
+.exp-item .img-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:120rpx;
+  height:120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 20rpx;
+  border:1rpx solid #e5e5e5;
+}
+.exp-item .img-box image{
+  width:60rpx;
+  height: 60rpx;
+}
+.exp-item .info{
+  flex:1;
+}
+.project-experience .info-name{
+  margin-bottom: 12rpx;
+}
+/* 语言、奖项 */
+.language .lang-box{
+  display: flex;
+  align-items: center;
+  height: 90rpx;
+}
+.language .lang-box .circle{
+  width:20rpx;
+  height:20rpx;
+  border-radius: 50%;
+  margin-right: 15rpx;
+  background-color: #F5A623;
+}
+.language .lang-box .lang{
+  margin-right:24rpx;
+}
+/* 技能、证书 */
+.skills,.certificate{
+  padding-bottom: 20rpx;
+}
+.skills .list,.certificate .list{
+  display: flex;
+  flex-wrap:wrap; 
+  padding-top:20rpx;
+}
+.skills .list .item,.certificate .list .item{ 
+  height: 45rpx;
+  line-height: 45rpx;
+  padding-left:8rpx;
+  padding-right:8rpx;
+  border-radius:5rpx;
+  background-color: #53C68B;
+  margin-right:8rpx;
+  margin-bottom: 10rpx;
+  font-size: 26rpx;
+  color: #ffffff;
+}
+/* 个人链接  */
+
+.self-link .bd{
+  padding-top:30rpx;
+  padding-bottom: 30rpx;
+  border-top:1rpx solid #e5e5e5;
+}
+.self-link .link{
+  font-size: 34rpx;
+  color: #4A90E2;
+  margin-bottom:15rpx;
+}
+.self-link .no-desc{
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-size:34rpx;
+  color: #999999;
+  /* border:1rpx solid #CCCCCC; */
+}
+/* 求职意愿  */
+.job-want .hd .cue{
+  font-size:26rpx;
+  color:#999999;
+  margin-left:20rpx;
+}
+.job-want .bd{
+  padding-top:20rpx;
+  padding-bottom: 20rpx;
+}
+.job-want .want{
+  margin-bottom: 40rpx;
+}
+.job-want .want:last-child{
+  margin-bottom: 0rpx;
+}
+.job-want .want .key{
+  margin-right: 40rpx;
+}
+.job-want .want .unselected{
+  color: #999999;
+}

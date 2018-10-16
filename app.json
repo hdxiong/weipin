@@ -1,0 +1,90 @@
+{
+  "pages": [   
+    "pages/generation/positionList/positionList",
+    "pages/generation/createRecruitIndex/createRecruitIndex",
+    "pages/generation/createResumeIndex/createResumeIndex",
+    "pages/generation/companySearch/companySearch",
+    "pages/generation/cityList/cityList",
+    "pages/generation/codeLogo/codeLogo",
+    "pages/generation/companyList/companyList",
+    "pages/generation/chat/chat", 
+    "pages/generation/chatList/chatList",
+    "pages/generation/authorize/authorize",
+    "pages/generation/create/create",
+    "pages/generation/avatar/avatar",  
+    "pages/generation/companyDetail/companyDetail",
+    "pages/generation/newIndex/newIndex",
+    "pages/home/newHome/newHome",
+    "pages/position/detail/detail",
+    "pages/generation/editBaseInfo/editBaseInfo",
+    "pages/generation/loginRegister/loginRegister",
+    "pages/generation/searchAddress/searchAddress",   
+    "pages/generation/agreement/agreement", 
+    "pages/generation/setting/setting",  
+    "pages/generation/createPosition/createPosition",
+    "pages/generation/positionInfo/positionInfo",
+    "pages/generation/positionDetail/positionDetail",
+    "pages/index/index",
+    "pages/position/resume/resume",
+    "pages/position/loginResume/loginResume",
+    "pages/position/addResume/addResume",
+    "pages/position/deliveryResult/deliveryResult",
+    "pages/home/map/map",
+    "pages/mine/collect/collect",
+    "pages/mine/editPreview/editPreview",
+    "pages/mine/preview/preview",
+    "pages/mine/editAspiration/editAspiration",
+    "pages/mine/editLink/editLink",
+    "pages/mine/editCertificate/editCertificate",
+    "pages/mine/editSkill/editSkill",
+    "pages/mine/editAwards/editAwards",
+    "pages/mine/editLanguage/editLanguage",
+    "pages/mine/editProject/editProject",
+    "pages/mine/editEducation/editEducation",
+    "pages/mine/editWork/editWork",
+    "pages/mine/editBaseInfo/editBaseInfo",
+    "pages/mine/editIntroduce/editIntroduce",
+    "pages/mine/jobRecordDetail/jobRecordDetail",
+    "pages/mine/jobRecord/jobRecord"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#f1f5f8",
+    "backgroundColorBottom":"#f1f5f8",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationStyle":"custom"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "color":"#999999",
+    "selectedColor":"#5cb3ff",
+    "list": [
+      {
+        "text":"职位",
+        "iconPath":"images/tabbar_position.png",
+        "selectedIconPath":"images/selected_tabbar_position.png",
+        "pagePath": "pages/generation/positionList/positionList"
+      },
+      {
+        "text": "公司",
+        "iconPath": "images/tabbar_company.png",
+        "selectedIconPath": "images/selected_tabbar_company.png",
+        "pagePath": "pages/generation/companyList/companyList"
+      },
+      {
+        "text": "我的",
+        "iconPath": "images/tabbar_mine.png",
+        "selectedIconPath": "images/selected_tabbar_mine.png",
+        "pagePath": "pages/generation/setting/setting"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 30000,
+    "connectSocket": 10000,
+    "uploadFile": 20000,
+    "downloadFile": 20000
+  }
+}

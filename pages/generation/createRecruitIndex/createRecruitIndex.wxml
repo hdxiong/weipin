@@ -1,0 +1,9 @@
+<view class="page-recruit">
+  <image class="img1" src="/images/create_img2.png" mode="widthFix"></image>
+  <image class="img2" src="/images/new_logo.png" mode="widthFix"></image>
+  <view class="h2">微信社交招求职招聘神器</view>
+  <view class="recruit-content">爱聚微聘是一款免费为企业提供招聘信息制作、转发、管理等功能的小程序，是企业开启移动社交招聘的利器。</view>
+  <view class="recruit-btn" catchtap='linkTo'>创建招聘小程序</view>
+</view>
+  <!-- 登录弹框  -->
+  <login-dialog id="loginDialog" bind:authPhoneNumberSuccess="authPhoneNumberSuccess"></login-dialog>

@@ -1,0 +1,115 @@
+@import '/template/toast/toast.wxss';
+
+.logo-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 270rpx;
+}
+.logo-wrap .logo{
+  width:140rpx;
+  height:140rpx;
+}
+.logo-wrap .logo .img{
+  width:100%;
+  height:100%;
+}
+.form .btn-area{
+  margin-top:60rpx;
+}
+.form .btn-area .btn-submit{
+  width:690rpx;
+  height: 94rpx;
+  border:none;
+  border-radius: 8rpx;
+  background:#5AA2E7;
+  color: #fff;
+  font-size:36rpx;
+}
+.tip-list{
+  position:fixed; 
+  bottom:20rpx;
+  left:184rpx;
+  z-index: 2;
+}
+.tip-list .tip{
+  display: flex;
+  align-items: center;
+  height: 42rpx;
+  font-size:26rpx;
+  color: #999999;
+}
+.tip-list .tip image{
+  width:28rpx;
+  height:28rpx;
+  margin-right:20rpx;
+}
+.weui-icon-clear{
+  top:50%;
+  transform: translateY(-50%);
+  z-index:999;
+}
+.zhilian-input .weui-icon-clear{
+  right:40px;
+}
+/* 验证码弹框  */
+.code-mask{
+  position: fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+}
+.code-wrap{
+  position: fixed;
+  top:50%;
+  left:50%;
+  z-index:1001;
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  background-color: #ffffff;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  width:560rpx;
+}
+.code-wrap .title{
+  font-size:36rpx;
+  padding-top:50rpx;
+  margin-bottom:70rpx;
+}
+.code-wrap .img-box{
+  width:236rpx;
+  height:108rpx;
+  overflow: hidden;
+  margin-bottom: 70rpx;
+}
+.code-wrap .img-box image{
+  width:100%;
+  height:100%;
+}
+.code-wrap .input-box{
+  width:488rpx;
+  height: 92rpx;
+  line-height: 92rpx;
+  border:1rpx solid #e5e5e5;
+  border-radius: 10rpx;
+  margin-bottom:45rpx;
+}
+.code-wrap .input-box .input{
+  width:100%;
+  height: 92rpx;
+  font-size:36rpx;
+  text-align: center;
+}
+.code-wrap .btn-area{
+  width:100%;
+  line-height: 100rpx;
+  font-size:36rpx;
+  color:#5AA2E7;
+  border-top:1rpx solid #e5e5e5;
+  text-align: center;
+}

@@ -1,0 +1,7 @@
+<header title="重新授权" showBack='1' position="fixed"></header>
+<view class="page-author border_top">
+  <icon class="icon" type='warn' size='93'></icon>
+  <text class="text1">授权失败</text>
+  <text class="text2">授权失败，请您重新授权</text>
+  <button class="btn btn-w690" open-type='getUserInfo' bindgetuserinfo="getUserInfo">重新授权</button>
+</view>

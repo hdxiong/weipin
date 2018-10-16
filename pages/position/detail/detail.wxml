@@ -1,0 +1,82 @@
+<header title="职位详情" showBack='{{showBack}}' color="blue" position="fixed"></header>
+<view class="page-detail" style="margin-top:64px;" wx:if="{{hasData}}">
+    <!-- 职位基本信息 -->
+    <view class="position-base">
+       <view class="position-box">
+          <view class="position-name">{{positionInfo.positionName}}</view>
+          <view class="position-salary">{{positionInfo.salary}}</view>
+          <view class="position-require">{{positionInfo.workCity}}<text class="line"></text>{{positionInfo.workYear}}<text class="line"></text>{{positionInfo.educationRequire}}<text class="line"></text>{{positionInfo.positionTypeStr}}</view>
+       </view>
+       <view class="company-box" catchtap='linkTo' data-url="1" wx:if="{{companyInfo.companyName}}">
+          <view class="company-name">{{companyInfo.companyName}}</view>
+          <view class="company-info">{{companyInfo.industryStr}} | {{companyInfo.scaleStr}}</view>
+          <text class="fa fa-angle-right"></text>  
+       </view>
+    </view>
+    <!-- 职位访问、亮点、描述  -->
+    <view class="position-other">
+      <view class="position-visitor">
+        <view class="info-header" style="margin-top:0;">今日访问</view>
+        <view class="visitor-num">历史访问<text class='color_46BE8A'>{{positionInfo.positionVisit ? positionInfo.positionVisit : 0}}</text>次</view>
+        <view class="visitor-portrait"> 
+          <view class="img-box" wx:for="{{headImgList}}" wx:key="index" catchtap='linkTo' data-url='3' data-index="{{index}}" data-item="{{item}}">
+              <image class="img"  src="{{item.headImgUrl}}"></image>
+              <text class="nick-name ell">{{item.nickName || ''}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="position-desc">
+        <view class="info-header">职位描述</view>
+        <view class='content'>
+           <rich-text nodes="{{positionInfo.positionDesc}}"></rich-text>  
+        </view>
+      </view>
+      <view class="position-welfare">
+        <view class="info-header">职位亮点</view>
+        <view class="tag-list">
+          <view class="tag" wx:for="{{positionInfo.positionTagList}}"  wx:key="id">{{item.name}}</view>
+        </view>
+      </view>
+
+    </view>
+    <!-- 底部按钮  -->
+    <view class="fixed-btns">
+      <view class="collect-box btn-box" catchtap='collectPosition'>
+        <image class="img" src="/images/icon-collect.png" hidden='{{!positionInfo.collectStatus}}'></image>
+        <image class="img" src="/images/icon-selected-collect.png" hidden='{{positionInfo.collectStatus}}'></image>
+        <text class="word">收藏</text>
+      </view>  
+      <button class="share-box btn-box" catchtap='wantRecommend'>
+        <image class="img" src="/images/icon-share2.png"></image>
+        <text class="word">我要推荐</text>
+      </button>
+      <view class="collect-box btn-box chat-box" catchtap='linkTo' data-url='4'>
+        <image class="img" src="/images/chat-bubble-black.png" mode='widthFix'></image>
+        <text class="word">直聊</text>
+      </view>
+      <view class="btn-delivery  btn-box" catchtap='linkTo' data-url="2">投递简历</view>
+    </view>
+</view>
+<view class="no-data" wx:if="{{noData}}">
+  <image class="img" src="/images/placeholder-micro.png" mode='widthFix'></image>
+  <text class="text">该职位已被删除</text>
+  <view class="btn" catchtap='linkTo' data-url="5">返回首页</view>
+</view>
+<!-- 生成海报  -->
+<view class='show_img' bindtap="closeShowimg" wx:if='{{showImg}}'>
+  <view class='show_img_con'>
+    <image src='{{showImgurl}}' mode="widthFix"></image>
+  </view>
+  <view bindtap="saveImg" class='show_img_btn'><image src='https://aijuhr.com/images/xcx/dowload.png'></image>保存图片</view>
+</view>
+<!-- canvas -->
+<canvas style="width: 750px; height: 1334px;" canvas-id="firstCanvas" class='firstCanvas' ></canvas> 
+ <!-- 分享操作菜单actionSheet  -->
+ <view class='choose_con' wx:if="{{showShare}}" bindtap="toggleShareSheet" style="background:transparent;">
+    <view class='choose_con_btn'>
+      <button class='share_poster' bindtap="previewQrcode" data-target='friendCircle'>生成分享图到朋友圈</button>
+      <button class='share_pople' open-type="share">转发给好友或群友</button>
+      <button class='share_cancel'>取消</button>
+    </view>
+  </view>
+<authUserInfo showAuth="{{showAuth}}" bindmyevent="myevent"></authUserInfo>

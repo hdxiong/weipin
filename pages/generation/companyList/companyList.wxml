@@ -1,0 +1,125 @@
+<wxs module="filters" src="../../../wxs/filter.wxs" />
+
+<view class="page-wrap {{currentFilterTab != 0 ? 'overflow' : ''}}">
+<view class="page-list">
+   <!-- banner区域 -->
+  <view class="banner-box">
+     <!-- <view class="logo-box">
+      <image class="img" src="/images/new_logo.png"></image>
+      <text class="text">微信社交招聘神器</text>
+     </view> -->
+    <image class="img" src="{{bannerSrc}}" mode="widthFix" wx:if="{{bannerSrc}}"></image>
+    <image class="img" src="https://aijuhr.com/images/xcx/wp_company-banner.png" mode="widthFix" wx:else></image>
+     <view class="weui-search-bar">
+          <view class="weui-search-bar__form">
+              <view class="weui-search-bar__box">
+                  <icon class="weui-icon-search_in-box" type="search" size="14" color='#999999'></icon>
+                  <input type="text" class="weui-search-bar__input" placeholder-style='color:#999999;' placeholder="搜索公司名" value="{{inputVal}}" focus='{{inputShowed}}' bindinput="inputTyping"  bindconfirm="confirmSearch" />
+                  <view class="weui-icon-clear" wx:if="{{inputShowed}}" catchtap="hideInput">
+                      <icon type="clear" size="14"></icon>
+                  </view>
+              </view>
+              <label class="weui-search-bar__label" wx:if="{{!inputShowed}}" catchtap="showInput">
+                  <icon class="weui-icon-search" type="search" size="14" color='#999999'></icon>
+                  <view class="weui-search-bar__text" style="color:#999999;">搜索公司名</view>
+              </label>
+          </view>
+          <!-- <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>  -->
+      </view>
+  </view>
+  <!-- 列表区域  -->
+  <view class="company-list-wrap">
+    <view id="mask" class="mask" hidden='{{currentFilterTab == 0}}' catchtap='closeFilter' style="display:none;"></view>
+    <!-- 过滤条件 -->
+    <view class="filter-tabs"  style="display:none;">
+       <view class="tab {{currentFilterTab == 1 ? 'active' : ''}}" catchtap='selectFilter' data-filter='1'>
+          <text class="word">规模</text>
+          <text class="arrow"></text>
+       </view>
+       <view class="tab {{currentFilterTab == 2 ? 'active' : ''}}" catchtap='selectFilter' data-filter='2'>
+          <text class="word">行业</text>
+          <text class="arrow"></text>
+       </view>
+       <view class="filter-content {{currentFilterTab == 1 ? 'open' : currentFilterTab == 2 ? 'open2' : ''}}">
+          
+          <view class="scale-list" hidden='{{currentFilterTab != 1}}'>
+              <view class="filter-item {{scaleIndex == item.value ? 'active' : ''}}" wx:for="{{scales}}" wx:key="index" data-val="{{item.value}}" catchtap='selectScale'>{{item.label}}</view>
+          </view>
+          <scroll-view scroll-y style="height:540rpx;" hidden='{{currentFilterTab != 2}}'>
+            <view class="industry-list scale-list" >
+              <view class="filter-item {{domainIndex == 0 ? 'active' : ''}}" data-val="0" catchtap='selectDomain'>全部</view>
+              <view class="filter-item {{domainIndex == item.id ? 'active' : ''}}" wx:for="{{domainList}}" wx:key="index" data-val="{{item.id}}" catchtap='selectDomain'>{{item.name}}</view>
+            </view>
+          </scroll-view>
+          <view class="btns">
+            <view class="btn" catchtap='reset'>重置</view>
+            <view class="btn" style="background-color:#5CB3FF;color:#fff;" catchtap='confirm'>确定</view>
+          </view>
+       </view>
+    </view>
+    <!-- 列表 -->
+    <view class="company-list" wx:if="{{companyList.length > 0}}">
+      <form class="" report-submit='true' wx:for="{{companyList}}" wx:key="id" bindsubmit="linkTo" data-id="{{item.id}}">
+      <button class="remove-button-default-style company-item" form-type='submit'>
+        <view class="company-info">
+          <view class="img-box">
+            <image class="img" src="{{item.file.url}}" wx:if="{{item.file && item.file.url}}"></image>
+            <image class="img" src="/images/default_company_logo.jpg" wx:else></image>
+          </view>
+          <view class="info-box border_bottom">
+            <view class="company-name ell">{{item.companyName || ''}}</view>
+            <!-- <view class="address ell" wx:if="{{item.dataFrom == 0}}">{{item.companyAddress || ''}}</view> -->
+            <!-- <view class="address ell" wx:elif="{{item.dataFrom == 2}}">{{filters.replaceArea(item.areaCodeName)}}{{item.companyAddress || ''}}</view> -->
+             <view class="address ell">{{filters.replaceArea(item.areaCodeName)}}{{item.companyAddress || ''}}</view>
+            <view class="other"><text class="scale" wx:if="{{item.scaleStr}}">{{item.scaleStr}}</text><text class="industry" wx:if="{{item.companyDomain.name}}">{{item.companyDomain.name}}</text></view>
+            <view class="popular-box">
+              <view class="word">
+                <image class="img" src="/images/icon-hot.png"></image>{{item.views || 0}}
+              </view>
+              <view class="num" style="text-align:center;">人气值</view>
+            </view>
+          </view>
+        </view>
+        <view class="position-info">
+          <view class="user-info">
+            <image class="img" src="{{item.quickSpFans.headImgUrl}}" wx:if="{{item.quickSpFans && item.quickSpFans.headImgUrl && item.quickSpFans.headImgUrl != 'null'}}"></image>
+            <image class="img" src="/images/default-portrait.jpg" wx:else></image>
+            <text class="name ell" wx:if="{{!item.quickSpFans.nickName || item.quickSpFans.nickName == 'null'}}">这是昵称</text>
+            <text class="name ell" wx:else>{{item.quickSpFans.nickName}}</text>
+          </view>
+          <view class="position" wx:if="{{item.positionName}}">在招 <text class="ell" style="color:#5CB3FF;max-width:220rpx;">{{item.positionName || ''}}</text> 等{{item.positionCount}}个职位</view>
+        </view>
+      </button>
+      </form>
+    </view> <!-- company-list -->  
+    <view class="no-data" wx:if="{{noData}}">
+       <image class="img" src="/images/placeholder_search.png" mode="widthFix"></image>
+       <text class="text">没有查询到数据</text>
+    </view>
+    <view class="weui-loadmore bottom-no-data" wx:if="{{loading}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view> 
+    </view>
+    <view class="weui-loadmore weui-loadmore_line bottom-no-data" wx:if="{{noMore}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
+    </view>
+  </view>  <!-- company-list-wrap -->
+  <!-- 创建按钮 -->
+  <view class="message create" catchtap='goCreate'>
+     <view class="message-box create-box">
+       <text class="icon-add">+</text>
+       <text class="text">创建</text>
+     </view>    
+  </view>
+  <!-- 直聊按钮 -->
+  <view class="message" catchtap='goChatList'>
+     <view class="message-box">
+       <image class="img" src="/images/chat-bubble-white.png" mode="widthFix"></image>
+       <text class="text">直聊</text>
+       <view class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;" wx:if="{{notReadCount}}">{{notReadCount}}</view>
+     </view>    
+  </view>
+</view>
+</view>
+<authUserInfo showAuth="{{showAuth}}"></authUserInfo>
+<!-- <tabbar currentIndex='0'></tabbar> -->

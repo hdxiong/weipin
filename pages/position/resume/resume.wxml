@@ -1,0 +1,47 @@
+
+<header title="投递简历" showBack='1' position="fixed"></header>
+<view class="resume-type" style="margin-top:64px;">
+<!-- 创建个人简历  -->
+  <view class="resume-create">
+    <view class="title">{{step == '3'? '个人档案' : '创建个人简历'}}</view>
+    <view class="create-types">
+       <form class="" bindsubmit='navigatorTo' report-submit="true" data-pagetype="1" wx:if="{{step != '3'}}">
+          <button class="btn-formId" form-type='submit'>
+            <view class="type">
+              <image class="icon" src="../../../images/resum_3.png"></image>
+              <text class="word">一分钟创建微简历</text>
+            </view>
+          </button>
+      </form>
+       <form class="" bindsubmit='navigatorTo' report-submit="true" data-pagetype="3" wx:else>
+          <button class="btn-formId" form-type='submit'>
+            <view class="type">
+              <image class="icon" src="../../../images/resum_3.png"></image>
+              <text class="word">个人档案</text>
+            </view>
+            <view class="type code"  catchtap='scanCode' style="display:none;">
+              <image class="icon" src="../../../images/resum_5.png"></image>
+              <view class="word"><text class="title">PC扫码填简历</text><text class="url">请登录 resume.aijuhr.com</text></view>
+            </view>
+          </button>
+      </form>
+    </view>
+  </view>
+  <!-- 快速导入简历  -->
+  <view class="resume-import">
+    <view class="title">快速导入简历</view>
+    <view class="platform-list">
+      <!-- <view class="platform" wx:for="{{platforms}}" wx:key="index" data-type="{{item.type}}" data-pagetype="2" catchtap='navigatorTo'> -->
+        <form class="form-id" bindsubmit='navigatorTo' report-submit="true" wx:for="{{platforms}}" wx:key="index" data-type="{{item.type}}" data-pagetype="2">
+          <button class="btn-formId platform" form-type='submit'>
+            <view class="left">
+              <image class="logo" src="{{item.logoUrl}}"></image>
+              <text class="word">{{item.platformName}}</text>
+            </view>  
+            <view class="right">导入</view>
+         </button>
+      </form>
+      <!-- </view> -->
+    </view>
+  </view>
+</view>

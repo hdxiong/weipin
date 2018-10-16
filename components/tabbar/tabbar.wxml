@@ -1,0 +1,18 @@
+<view class="tabbar-wrap">
+  <view class="tabbar-item {{currentIndex == '0' ? 'active' : ''}}" data-idx="0"  catchtap='_switchTab'>
+    <image class="img" src="/images/selected_tabbar_company.png" mode='widthFix' wx:if="{{currentIndex == '0'}}"></image>
+    <image class="img" src="/images/tabbar_company.png" mode='widthFix' wx:else></image>
+    <text class="text">公司</text>
+  </view>
+  <view class="tabbar-item {{currentIndex == '1' ? 'active' : ''}}" data-idx="1"  catchtap='_switchTab'>
+    <image class="img" src="/images/selected_tabbar_mine.png" mode='widthFix' wx:if="{{currentIndex == '1'}}"></image>
+    <image class="img" src="/images/tabbar_mine.png" mode='widthFix' wx:else></image>
+    <text class="text">我的</text>
+  </view>
+  <view class="create-box" data-idx="2"  catchtap='_switchTab'>
+    <!-- <view class="img-box"> -->
+      <image class="img" src="/images/icon_create.png"></image>
+    <!-- </view> -->
+  </view>
+</view>
+<view class="circle"></view>

@@ -1,0 +1,38 @@
+page {
+  height: -webkit-calc(100% - 64px);
+  height: calc(100% - 64px);
+}
+
+.page-author {
+  margin-top: 64px;
+  height: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  width: 186rpx;
+  height: 186rpx;
+  padding-top: 100rpx;
+  margin-bottom: 50rpx;
+}
+
+.text1 {
+  font-size: 40rpx;
+  line-height: 1.4;
+  margin-bottom: 30rpx;
+}
+
+.text2 {
+  font-size: 28rpx;
+  color: #888;
+  margin-bottom: 60rpx;
+}
+
+button.btn {
+  width: 670rpx;
+  height: 94rpx;
+}

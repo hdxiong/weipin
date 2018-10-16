@@ -1,0 +1,13 @@
+
+<import src="/template/jobRecord/jobRecord.wxml" />
+
+<header title="求职记录" showBack='1' position="fixed"></header>
+ <scroll-view class="scroll-wrap" scroll-y  wx:if="{{recordList && recordList.length>0}}" style="margin-top:64px;">
+    <view class="record-item" wx:for="{{recordList}}" wx:key="positionApplyId" data-postId="{{item.postId}}" catchtap='linkTo'>
+        <template is="jobRecord" data="{{...item}}" />
+    </view>
+ </scroll-view>
+ <view class="no-list" wx:else style="margin-top:64px;">
+      <image class="img" src="../../../images/placeholder_job_record.png" mode="widthFix"></image>
+      <text class="text">暂无求职记录</text>
+ </view> 

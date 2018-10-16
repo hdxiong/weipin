@@ -1,0 +1,4 @@
+<!--util.js 封装了toggleToast(that,content)：控制提示框的显示及隐藏-->
+<template name="defineToast">
+     <view wx:if="{{isShow}}" style="position:fixed; top:64px;left:50%; transform:translate(-50%,-100%); z-index:99; padding:18rpx 60rpx; background:rgba(0,0,0,.8); color:white; font-size:28rpx; text-align:center; border-radius:8rpx;animation: myfirst 2s;-webkit-animation: myfirst 2s;">{{content}}</view>
+</template>

@@ -1,0 +1,199 @@
+@import "/template/share/share.wxss";
+@import "/style/ali-font.wxss";
+
+page{
+  height: 100%;
+}
+.page-wrap{
+  min-height: calc(100% - 116rpx);
+  background: #fff;
+  position: relative;
+  padding-bottom: 116rpx;
+}
+.bg-color{
+  height:350rpx ;
+  /* background:linear-gradient(180deg,rgba(92,179,255,1),rgba(92,210,255,1)); */
+  border-bottom-right-radius: 16rpx;
+  border-bottom-left-radius: 16rpx;
+}
+.bg-color .img{
+  width:750rpx;
+  height: 350rpx;
+}
+.company-card{
+  width:710rpx;
+  min-height:350rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 2rpx 10rpx 0rpx rgba(211,211,211,0.68);
+  border-radius:8rpx;
+  padding:50rpx 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin:-192rpx auto 30rpx;
+  position: relative;
+}
+.company-card .company-name{
+  width:430rpx;
+  height: 120rpx;
+  font-size:42rpx;
+  margin-bottom: 40rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.company-card .company-address,.company-card .industry-scale{
+  font-size:28rpx;
+  color:#999999;
+  margin-bottom: 10rpx;
+}
+.company-card .setting{  
+  text-align: right;
+  font-size:28rpx;
+  color: rgba(102,102,102,1);
+  margin-top:-10rpx;
+}
+.company-card .company-logo{
+  position: absolute;
+  top:50rpx;
+  right:40rpx;
+  width:130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  border:1px solid rgba(242,246,252,1);
+  /* box-shadow: 0 0 4rpx #ccc; */
+}
+.company-card .company-logo image{
+  width:100%;
+  height: 100%;
+  border-radius: 50%;
+}
+/*  公司介绍和在招职位 start  */
+.company-position-wrap{
+  width:710rpx;
+  background:rgba(255,255,255,1);
+  box-shadow:0rpx 2rpx 10rpx 0rpx rgba(211,211,211,0.68);
+  border-radius:8rpx;
+  padding:0rpx 28rpx 30rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin:0rpx auto 44rpx;
+  position: relative;
+}
+.company-position-wrap.add-padding{
+  padding-top:138rpx;
+}
+.company-wrap,.position-wrap{
+   padding-bottom:50rpx; 
+  font-size:28rpx;
+  color: #B2B2B2;
+}
+.position-wrap{
+  padding-bottom: 0;
+  min-height: 220rpx;
+}
+.position-wrap .no-position{
+  text-align: center;
+  color: #999999;
+}
+
+/* 职位  */
+.search-bar{
+  width:650rpx;
+  height: 72rpx;
+  border-radius: 36rpx;
+  background-color: rgba(248,248,248,1);
+  margin:-50rpx auto 50rpx;
+}
+.search-bar .search-bar__box{
+    height: 72rpx;
+    border-radius: 36rpx;
+    padding-left:28rpx;
+    padding-right: 28rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.search-bar .icon-search{
+  width:14px;
+  height: 14px;
+}
+.search-bar .search-bar__input{
+  flex:1;
+}
+.position{
+  padding:32rpx 4rpx;
+  /* border-bottom: 1rpx solid #e5e5e5; */
+}
+.position-list .form{
+  display: block;
+}
+.position-list .form:last-child::after{
+  border-top:0;
+}
+.position-list .position:last-child::after{
+    display: none;
+}
+.position .position-name{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+.position .position-name .name{
+  color: #565454;
+  font-size:32rpx;
+}
+.position .position-name .salary{
+   color: #FF566B;
+   font-size:34rpx;
+   /* font-family: DINAlternate-Bold; */
+}
+.position .position-center{
+    display: flex;
+    margin-bottom: 28rpx;
+}
+.position .position-center .center-tag{
+  line-height: 45rpx;
+  margin-right: 18rpx;
+  padding:0 8rpx;
+  border-radius: 5rpx;
+  background: rgba(249,249,249,1);
+  font-size: 26rpx;
+  color: #999999;
+}
+.position .position-bottom{
+  font-size:24rpx;
+  color: #999999;
+}
+.position .position-bottom .release-time{
+  margin-right:18rpx;
+}
+.no-more{
+  font-size: 26rpx;
+  color: #B2B2B2;
+  text-align: center;
+  line-height: 40rpx;
+  margin-top: 66rpx;
+}
+.no-data{
+  padding-top: 80rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #999999;
+}
+/*  公司介绍和在招职位 end  */
+
+.footer{
+  position: absolute;
+  bottom:0;
+  left:0;
+  width:750rpx;
+  padding-bottom: 20rpx;
+  text-align: center;
+}
+
+.footer .img{
+  width:180rpx;
+}

@@ -1,0 +1,5 @@
+<template name="footer">
+    <view class="footer">
+     <image class="footer-image" src="/images/footer-logo.png" />
+    </view>
+</template> 

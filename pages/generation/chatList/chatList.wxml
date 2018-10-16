@@ -1,0 +1,24 @@
+
+<header title="消息" showBack='1' position="fixed"></header>
+<view class="page-message">
+  <view class="msg-list" wx:if="{{!noData}}">
+    <view class="msg-item" catchtap='linkTo' wx:for="{{msgList}}" wx:key="index" catchtap='linkTo' data-item="{{item}}"> 
+      <view class="img-box">
+        <image class="img" src="{{item.headImg}}" wx:if="{{item.headImg}}"></image>
+        <image class="img" src="/images/default-portrait.jpg" wx:else></image>
+      </view>
+      <view class="content">
+        <view class="content-base">
+          <view class="name"><text class="dot" wx:if="{{item.msgStatus == 0}}"></text>{{item.nickName}}</view>
+          <view class="time">{{item.sendTime}}</view>
+        </view>
+        <view class="content-msg ell" wx:if="{{item.msgType != 5}}">{{item.msgContent}}</view>
+        <view class="content-msg ell" wx:else>[图片消息]</view>
+      </view>
+    </view>
+  </view>
+  <view class="no-data" wx:if="{{noData}}">
+    <image class=" img" src="/images/placeholder_common.png" mode="widthFix"></image>
+    <text class="text">没有收到消息</text>
+  </view>
+</view>

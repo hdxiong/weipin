@@ -1,0 +1,30 @@
+
+<header title="编辑个人链接" showBack='1' position="fixed"></header>
+<view class="edit-link" style="margin-top:64px;">
+    <view class="form-title">我们想了解不止一面的你</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input link-input">
+          <view class="weui-cell__hd">
+              <view class="weui-label">网址</view>
+          </view> 
+          <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="请填写网站地址"  value="{{model.linkUrl}}" data-event="input" bindinput="operateInput" />
+          </view>
+          <view class="weui-icon-clear" wx:if="{{model.linkUrl.length > 0}}" data-event="clear" bindtap="operateInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+      </view>
+    </view>
+    <view class="weui-cells weui-cells_after-title textarea-weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="描述" maxlength="1000" value="{{model.linkDescription}}" style="height: 3.3em" bindinput="operateTextarea" />
+            <view class="weui-textarea-counter">{{wordNumber}}/1000</view>
+        </view>
+      </view>
+    </view>
+     <!-- 其他  -->
+      <button class="save-btn btn-w690" type="primary"  bindtap="save">完成</button>
+      <!-- <button class="del-btn btn-w690" type="primary"  bindtap="del">清空数据</button> 
+      <view class="cue">注意：删除的按钮在有数据的时候存在</view>  -->
+</view>

@@ -1,0 +1,11 @@
+<view class="page-resume">
+  <view class="resume-logo">
+    <image class="img" src="/images/new_logo.png" mode='widthFix'></image>
+  </view>
+  <view class="resume-content">
+    <view class="h1">微信社交招求职招聘神器</view>
+    <view class="h2">创建您的简历，好机会会遇到认真的您</view>
+    <image class="img" src="/images/create_img1.png" mode='widthFix'></image>
+  </view>
+  <view class="resume-btn" catchtap="linkTo">创建简历小程序</view>
+</view>

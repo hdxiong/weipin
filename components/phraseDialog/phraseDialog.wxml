@@ -1,0 +1,28 @@
+<!--弹窗-->
+  <view class="modal-mask" catchtap="_close" ></view>
+
+  <view class="modal-dialog" >
+
+    <view class="modal-title">快捷回复<image class="icon-close" catchtap='_close' src="/images/icon_close2.png"></image></view>
+
+    <view class="modal-content">
+
+      <view class="modal-input">
+
+        <textarea placeholder-class="input-holder" placeholder='输入您的常用回复，请不要填写 QQ，微信等联系方式或广告信息， 否则系统将封禁您的账号' value='{{taValue}}'  bindinput="_inputChange" class="textarea" ></textarea>
+
+      </view>
+      <view class="word-num">{{taValue.length}}/200</view>
+
+    </view>
+
+    <view class="modal-footer">
+
+      <view class="btn-cancel" bindtap="_save" data-status="save">保存</view>
+
+      <view class="btn-confirm" bindtap="_send" data-status="send">发送</view>
+
+    </view>
+
+
+  </view>

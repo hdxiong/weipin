@@ -1,0 +1,11 @@
+{
+  "navigationBarTextStyle": "white",
+  "backgroundColor":"#f1f5f8",
+  "enablePullDownRefresh":true,
+  "onReachBottomDistance":40,
+  "usingComponents": {
+    "header": "/components/header/header",
+    "tabbar": "/components/tabbar/tabbar",
+    "authUserInfo": "/components/authUserInfo/authUserInfo"
+  }
+}

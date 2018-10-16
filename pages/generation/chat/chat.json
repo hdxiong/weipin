@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "header": "/components/header/header",
+    "phrase-dialog": "/components/phraseDialog/phraseDialog"
+  }
+}

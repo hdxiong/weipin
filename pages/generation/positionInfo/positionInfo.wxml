@@ -1,0 +1,62 @@
+<import src="/template/footer/footer.wxml" />
+<import src="/template/step/step.wxml" />
+ <!-- <template is="step" data="{{progress}}" />  -->
+
+
+<header title="职位信息" showBack='1' position="fixed"></header>
+<view class="position-info" style="margin-top:64px;">
+  <view class='addPostion_btn' wx:if="{{positionList && positionList.length > 0}}">
+     <form class="form" report-submit="true" bindsubmit='navigateTo' data-url="1" >
+       <button form-type='submit'>添加职位</button>
+    </form> 
+  </view>
+  <!-- <view class="section__hd"  catchtap="navigateTo" data-url="1">
+      <text class="title">职位信息</text>
+      <view class="icon-cross"></view>
+  </view> -->
+    <view class="section__bd">
+        <view class="position-list-wrap" wx:if="{{positionList && positionList.length > 0}}">
+            <view class="position" wx:for="{{positionList}}" wx:key="index" catchtap="navigateTo" data-url="2" data-id="{{item.id}}">
+                  <view class="position-title">
+                    <text class="list title font-32 ell">{{item.positionName}}</text>
+                    <text class="tag font-34">{{item.salary}}</text>
+                  </view>
+                  <view class="position-tags">
+                    <text class="tag">{{item.workCity}}</text> 
+                    <text class="tag">{{item.positionType}}</text>
+                  </view>
+                  <view class="time-number">
+                    <view class="time font-gray-24">发布时间 : {{item.publishTime}} </view>
+                    <view class="operation-area">
+                         <text class="word-btn" catchtap="onMyEvent"  data-id="{{item.id}}" data-pagetype="edit">编辑</text>
+                        <text class="word-btn" catchtap="onMyEvent" data-id="{{item.id}}" data-pagetype="deleted">删除</text>
+                        <text class="word-btn" catchtap="onMyEvent"  data-id="{{item.id}}" data-pagetype="copy">复制</text> 
+                         <!-- <text class="arrow-right"></text>  -->
+                    </view>
+                  </view>
+                  <!-- <view class='more-right extend-clickable-area' catchtap='moreRight' data-id="{{item.id}}">
+                    <view class='dian'></view>
+                    <view class='dian'></view>
+                    <view class='dian'></view>
+                  </view> -->
+            </view>
+        </view>
+        <view class="no-position" wx:else>
+              <image class="img"  src="/images/placeholder_position_manage.png" mode="widthFix"></image>
+              <view class="words">暂无职位信息</view>
+              <view class='addPostion_btn'>
+                <form class="form" report-submit="true" bindsubmit='navigateTo' data-url="1" >
+                   <button form-type='submit'>添加职位</button>
+                </form>
+              </view>
+        </view>
+        <view class=''></view>
+    </view>
+</view>
+
+<button style="display:none;" class="save-btn btn-w690 {{!positionList || positionList.length == 0 ? 'btn-disabled' : ''}}" type="primary" disabled='{{!positionList || positionList.length == 0}}' catchtap="navigateTo" data-url="4">下一步</button>
+
+
+<!-- 页脚 -->
+ <template is="footer" />
+ <!-- <operation open='{{open}}' bind:myevent="onMyEvent" operation-arr="{{operationArr}}" id="operation"></operation> -->

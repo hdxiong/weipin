@@ -1,0 +1,8 @@
+{
+  "navigationBarTextStyle":"white",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#5CB3FF",
+  "usingComponents": {
+    "header": "/components/header/header"
+  }
+}

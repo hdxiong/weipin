@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "编辑工作经历",
+  "backgroundColor": "#f1f5f8",
+  "backgroundTextStyle": "light",
+  "usingComponents": {
+    "header": "/components/header/header"
+  }
+}

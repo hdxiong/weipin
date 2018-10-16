@@ -1,0 +1,95 @@
+<wxs module="filters" src="../../../wxs/filter.wxs" />
+
+<header title="公司搜索" showBack='1' position="fixed"></header>
+<view class="page-wrap {{currentFilterTab != 0 ? 'overflow' : ''}}">
+<view class="page-list">
+  <view class="search-fixed">
+    <!-- 搜索区域 -->
+    <view class="search-area">
+      <view class="search-box">
+         <view class="hd" catchtap='goCity'><text class="city">{{currentCity.city}}</text><text class="arrow"></text></view>
+         <view class="bd">
+            <input class="input" placeholder='搜索公司名' placeholder-style='font-size:26rpx;' value="{{inputVal}}" bindinput="inputTyping"  bindconfirm="confirmSearch"></input>
+         </view>
+      </view>
+    </view>
+    <view id="mask" class="mask" hidden='{{currentFilterTab == 0}}' catchtap='closeFilter'></view>
+    <!-- 过滤条件 -->
+    <view class="filter-tabs">
+       <view class="tab {{currentFilterTab == 1 ? 'active' : ''}}" catchtap='selectFilter' data-filter='1'>
+          <text class="word">规模</text>
+          <text class="arrow"></text>
+       </view>
+       <view class="tab {{currentFilterTab == 2 ? 'active' : ''}}" catchtap='selectFilter' data-filter='2'>
+          <text class="word">行业</text>
+          <text class="arrow"></text>
+       </view>
+       <view class="filter-content {{currentFilterTab == 1 ? 'open' : currentFilterTab == 2 ? 'open2' : ''}}">
+          
+          <view class="scale-list" hidden='{{currentFilterTab != 1}}'>
+              <view class="filter-item {{scaleIndex == item.value ? 'active' : ''}}" wx:for="{{scales}}" wx:key="index" data-val="{{item.value}}" catchtap='selectScale'>{{item.label}}</view>
+          </view>
+          <scroll-view scroll-y style="height:540rpx;" hidden='{{currentFilterTab != 2}}'>
+            <view class="industry-list scale-list" >
+              <view class="filter-item {{domainIndex == 0 ? 'active' : ''}}" data-val="0" catchtap='selectDomain'>全部</view>
+              <view class="filter-item {{domainIndex == item.id ? 'active' : ''}}" wx:for="{{domainList}}" wx:key="index" data-val="{{item.id}}" catchtap='selectDomain'>{{item.name}}</view>
+            </view>
+          </scroll-view>
+          <!-- <view class="btns">
+            <view class="btn" catchtap='reset'>重置</view>
+            <view class="btn" style="background-color:#5CB3FF;color:#fff;" catchtap='confirm'>确定</view>
+          </view> -->
+       </view>
+    </view>
+  </view>
+  <view class="company-list-wrap">
+    
+    <!-- 列表 -->
+    <view class="company-list" wx:if="{{companyList.length > 0}}">
+      <form class="" report-submit='true' wx:for="{{companyList}}" wx:key="id" bindsubmit="linkTo" data-id="{{item.id}}">
+      <button class="remove-button-default-style company-item" form-type='submit'>
+        <view class="company-info">
+          <view class="img-box">
+            <image class="img" src="{{item.file.url}}" wx:if="{{item.file && item.file.url}}"></image>
+            <image class="img" src="/images/default_company_logo.jpg" wx:else></image>
+          </view>
+          <view class="info-box border_bottom">
+            <view class="company-name ell">{{item.companyName || ''}}</view>
+            <!-- <view class="address ell" wx:if="{{item.dataFrom == 0}}">{{item.companyAddress || ''}}</view>
+            <view class="address ell" wx:elif="{{item.dataFrom == 2}}">{{filters.replaceArea(item.areaCodeName)}}{{item.companyAddress || ''}}</view> -->
+            <view class="address ell">{{filters.replaceArea(item.areaCodeName)}}{{item.companyAddress || ''}}</view>
+            <view class="other"><text class="scale" wx:if="{{item.scaleStr}}">{{item.scaleStr}}</text><text class="industry" wx:if="{{item.companyDomain.name}}">{{item.companyDomain.name}}</text></view>
+            <view class="popular-box">
+              <view class="word">
+                <image class="img" src="/images/icon-hot.png"></image>{{item.views || 0}}
+              </view>
+              <view class="num" style="text-align:center;">人气值</view>
+            </view>
+          </view>
+        </view>
+        <view class="position-info">
+          <view class="user-info">
+            <image class="img" src="{{item.quickSpFans.headImgUrl}}" wx:if="{{item.quickSpFans && item.quickSpFans.headImgUrl && item.quickSpFans.headImgUrl != 'null'}}"></image>
+            <image class="img" src="/images/default-portrait.jpg" wx:else></image>
+            <text class="name ell" wx:if="{{!item.quickSpFans.nickName || item.quickSpFans.nickName == 'null'}}">这是昵称</text>
+            <text class="name ell" wx:else>{{item.quickSpFans.nickName}}</text>
+          </view>
+          <view class="position" wx:if="{{item.positionName}}">在招 <text class="ell" style="color:#5CB3FF;max-width:220rpx;">{{item.positionName || ''}}</text> 等{{item.positionCount}}个职位</view>
+        </view>
+      </button>
+      </form>
+    </view> <!-- company-list -->  
+    <view class="no-data" wx:if="{{noData}}">
+       <image class="img" src="/images/placeholder_search.png" mode="widthFix"></image>
+       <text class="text">没有查询到数据</text>
+    </view>
+    <view class="weui-loadmore bottom-no-data" wx:if="{{loading}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view> 
+    </view>
+    <view class="weui-loadmore weui-loadmore_line bottom-no-data" wx:if="{{noMore}}">
+        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
+    </view>
+  </view>  <!-- company-list-wrap -->
+</view>
+</view>

@@ -1,0 +1,46 @@
+@import '/template/defineModal/defineModal.wxss';
+
+.skill-box{
+  display: flex;
+  flex-wrap:wrap;
+  padding-bottom: 0;
+  padding-top:28rpx;
+}
+.skill-box .skill{
+  position: relative;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left:30rpx;
+  padding-right: 30rpx;
+  margin-right:18rpx;
+  margin-bottom: 28rpx;
+  font-size:26rpx;
+  color:#ffffff;
+  background-color:#53C68B;
+  overflow: visible;
+  border-radius: 6rpx;
+}
+.skill-box .skill .icon{
+  position: absolute;
+  top:-7.5px;
+  right:-7.5px;
+  width:15px;
+  height: 15px;
+  background-color:#fff;
+  border-radius:50%;
+}
+.skill-box .btn-add{
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left:30rpx;
+  padding-right: 30rpx;
+  margin-right:18rpx;
+  margin-bottom: 28rpx;
+  font-size:26rpx;
+  color:#BFBFBF;
+  border-radius: 6rpx;
+  border:1rpx dashed #ccc;
+}
+.save-btn{
+  margin-top:60rpx;
+}

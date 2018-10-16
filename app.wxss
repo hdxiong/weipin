@@ -1,0 +1,243 @@
+
+@import "style/weui.wxss";
+@import "style/font-awesome.wxss";
+
+
+page{
+   /* height: 100%; */
+   height: -webkit-calc(100% - 64px);
+   height: calc(100% - 64px);
+   background-color: #f1f5f8; 
+}
+.ell{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.form-title{
+  font-size:26rpx;
+  color: #999999;
+  padding:36rpx 0 24rpx 30rpx;
+}
+.form-id{
+  display: block;
+}
+.btn-formId{
+  border:0;
+  padding:0;
+  margin:0;
+  line-height: 1.5;
+  background: transparent;
+  font-size:28rpx; 
+  text-align: left;
+  border-radius:0;
+}
+.btn-formId::after{
+  border:0;
+}
+.weui-vcode-btn{
+  color: #5AA2E7;
+  font-size:32rpx;
+}
+.weui-vcode-btn:active{
+  color: #5AA2E7;
+}
+.isRequire::before{
+  content:"*";
+  color:#F96868;
+  font-size:30rpx;
+  margin-right: 4rpx;
+}
+/* 文字  */
+.font-gray-24{
+  font-size: 24rpx;
+  line-height: 1.5;
+  color: #999999;
+  word-break: break-all;
+}
+.font-gray-26{
+  font-size: 26rpx;
+  line-height: 1.5;
+  color: #999999;
+  word-break: break-all;
+}
+.font-34{
+  font-size: 34rpx;
+  line-height: 48rpx;
+  color: #222222;
+  word-break: break-all;
+}
+.font-36{
+  font-size: 36rpx;
+  line-height: 50rpx;
+  color: #000000;
+  word-break: break-all;
+}
+/* 颜色 */
+.color_5CB3FF{
+  color: #5CB3FF;
+}
+.color_46BE8A{
+  color:#46BE8A;
+}
+/* 按钮  */
+.btn-w690{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:690rpx;
+  height: 88rpx;
+  line-height: 1; 
+  background-color: #5CB3FF!important;
+  font-size: 36rpx;
+  color: #fff;
+}
+/* 右箭头 */
+.arrow-right{
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  margin-left:10rpx;
+}
+/* css 十字形  */
+.icon-cross{
+  position:relative;
+  width:36rpx;
+  height: 36rpx;
+  overflow: hidden;
+}
+.icon-cross::before{
+  content: ""; 
+  position: absolute;
+  top:15rpx;
+  width:100%;
+  height: 6rpx;
+  background-color: #5AA2E7;
+}
+.icon-cross::after{
+  content: "";
+  position: absolute;
+  left:15rpx;
+  width:6rpx;
+  height: 100%;
+  background-color: #5AA2E7;
+}
+.input-placeholder,.textarea-placeholder,.placeholder{
+   color: #999999; 
+}
+/* 扩展可点击区域  */
+.extend-clickable-area{
+  position: relative;
+}
+.extend-clickable-area::before{
+  content:'';
+  position:absolute;
+  top:-10rpx;
+  bottom:-10rpx;
+  left:-10rpx;
+  right:-10rpx;
+}
+/* 快速生成小程序公共业务样式 */
+.generation-page{
+  min-height: 100%;
+  padding-bottom: 88rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.generation-page .footer{
+  position: absolute;
+  bottom:0;
+  left:283rpx;
+}
+.gene-section .weui-cells__title{
+    display: flex;
+   justify-content: space-between;
+   padding-right:0;
+}
+.gene-section .weui-cells__title .title{
+  font-size:28rpx;
+  color: #B2B2B2;
+}
+.gene-section .weui-cells__title .info{
+  font-size:22rpx;
+  color: #999999;
+  /* transform: scale(0.9); */
+  flex:1;
+  text-align: right;
+}
+.gene-section .weui-cells__title .info text{
+  color: #5CB3FF;
+}
+.weui-uploader__bd{
+  padding:30rpx;
+  background-color: #fff;
+  margin-bottom:0;
+}
+.weui-uploader__input-box{
+  width:116rpx;
+  height: 116rpx;
+  margin-bottom: 0;
+}
+.gene-section .weui-cells::after,.gene-section .weui-cells::before{
+   border:none;
+}
+
+.gene-section .input-placeholder{
+  font-size:32rpx;
+  color: #999999;
+} 
+.btn-disabled{
+  background:rgba(90,162,231,1)!important;
+  opacity:0.4;
+  color: #fff!important;
+}
+/* 去掉button默认样式 */
+.remove-button-default-style{
+    padding:0;
+    margin:0;
+    line-height: 1.5;
+    background: transparent;
+    text-align: left;
+    border-radius:0;
+}
+.remove-button-default-style::after{
+    border:0;
+}
+/*
+边框
+*/
+.border_top,.border_bottom{position: relative;}
+.border_top::before{
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #E5E5E5;
+  color: #E5E5E5;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+.border_bottom::after{
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #E5E5E5;
+  color: #E5E5E5;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}

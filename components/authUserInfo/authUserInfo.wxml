@@ -1,0 +1,6 @@
+<view class="auth-mask" wx:if="{{showAuth}}">
+   <view class="auth-box">
+      <view class="auth-tips">需要授权后才能查看你的页面哦</view>
+      <button class="auth-btn remove-button-default-style" open-type="getUserInfo"  lang="zh_CN" bindgetuserinfo="getUserInfo">获取微信授权</button>
+   </view>
+</view>  

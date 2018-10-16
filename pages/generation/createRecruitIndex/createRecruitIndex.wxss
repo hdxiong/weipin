@@ -1,0 +1,48 @@
+.page-recruit{
+  height: -webkit-calc(100% + 64px);
+  height: calc(100% + 64px);
+  padding:110rpx 0rpx 0;
+  background-color: #5CB3FF;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.img1{
+  width:680rpx;
+  margin-bottom: 50rpx;
+}
+.img2{
+  width:188rpx;
+  margin-bottom: 22rpx;
+}
+.h2{
+  font-size: 28rpx;
+  color: #ffffff;
+  margin-bottom: 42rpx;
+}
+.recruit-content{
+  width:614rpx;
+  background:rgba(131,197,255,1);
+  box-shadow:0px 10rpx 15rpx 0px rgba(84,165,235,1),0px 0px 3rpx 0px rgba(255,255,255,0.5);
+  border-radius:16rpx;
+  padding:24rpx 32rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  color: #ffffff;
+  line-height: 1.5;
+  letter-spacing: 3rpx;
+}
+.recruit-btn{
+  width:610rpx;
+  height:89rpx;
+  margin-top: 116rpx;
+  line-height: 89rpx;
+  text-align: center;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 0px 3rpx 0px rgba(255,255,255,0.5);
+  border-radius:55rpx;
+  font-size:34rpx;
+  color: #5CB3FF;
+  font-weight: 500;
+}

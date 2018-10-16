@@ -1,0 +1,46 @@
+
+<wxs module="filters" src="../../../wxs/filter.wxs" />
+<header color="white" showBack="1"></header>
+<view class="page-wrap">
+  <view class="bg-color">
+    <image class="img" src="https://aijuhr.com/images/gene_banner_top.jpg"></image>
+  </view>
+  <view class="company-card">
+     <view class="company-name">{{companyName || ''}}</view>
+     <view class="company-address">{{filters.replaceArea(companyInfo.areaCodeName)}}{{companyInfo.companyAddress || ''}}</view>
+     <view class="industry-scale"><text>{{companyInfo.industryStr || ''}}</text> ｜ <text>{{companyInfo.scaleStr || ''}}</text></view>
+     <view class="company-logo">
+      <image wx:if="{{companyInfo.logoUrl}}" src="{{companyInfo.logoUrl}}" mode='aspectFill'></image>
+      <image class="img" wx:else src="/images/default_company_logo.jpg"></image>
+    </view>
+  </view>
+  <!-- company-position-wrap start  -->
+  <view class="company-position-wrap">
+    <view class="position-wrap">
+      <!-- 职位列表  -->
+        <view class="position-list" wx:if="{{hasPosition}}">
+          <form class="form  border_bottom" report-submit='true' bindsubmit='goDetail' wx:for="{{positionList}}" wx:key="{{id}}" data-item="{{item}}" data-positionId="{{item.id}}">
+            <button class="remove-button-default-style position" form-type='submit'>
+                <view class="position-name">
+                  <text class="name">{{item.positionName}}</text>
+                  <text class="salary">{{item.salary}}</text>
+                </view>
+                <view class="position-center">
+                  <view class="center-tag">{{item.workCity}}</view>
+                  <view class="center-tag">{{item.positionType}}</view>
+                </view>
+                <view class="position-bottom">
+                  <text class="release-time">发布时间：{{item.publishTime}}</text>
+                  <text class="views">浏览次数：{{item.positionVisit ? item.positionVisit : 0}}次</text>
+                </view>
+            </button>
+          </form>
+        </view>
+        <view class="no-more" wx:if="{{hasPosition}}">没有更多职位了~</view> 
+        <view class="no-data" wx:if="{{noData}}">该公司还没有职位哟~</view>
+    </view>
+  </view>  <!-- company-position-wrap end  -->
+  <view class="footer">
+    <image class="img" src="/images/footer_logo2.png" mode='widthFix'></image>
+  </view>
+</view>

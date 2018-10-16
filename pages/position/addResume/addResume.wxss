@@ -1,0 +1,184 @@
+@import '/template/toast/toast.wxss';
+.weui-icon-clear{
+  right:20rpx;
+  top:50%;
+  transform: translateY(-50%);
+  z-index:999;
+  
+}
+.email-input .weui-icon-clear,.phone-input .weui-icon-clear{
+  right:40px;
+}
+.weui-cell__ft {
+  width:21px;
+  height: 21px;
+  overflow: visible;
+}
+.weui-cell__ft icon{
+  vertical-align:top;
+
+} 
+
+.placeholder{
+  color: #999999;
+}
+.picker-inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+  height:2.58823529em;
+  min-height:2.58823529em;
+  line-height:2.58823529em;
+}
+.arrow-right{
+  margin-right:10rpx;
+}
+.save-btn{
+  font-size: 36rpx;
+}
+.weui-check__label {
+  padding-left:0;
+  /* display: flex;
+  align-items: center; 
+  position: relative; */
+}
+/* 
+.weui-check__hd_in-checkbox{
+  display: flex;
+  align-items: center;
+}
+.weui-check__hd_in-checkbox icon{
+  vertical-align: top;
+} */
+/* 基本信息 */
+
+.base-btn,.save-btn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom:40rpx;
+  left:30rpx;
+  z-index: 1;
+  width:690rpx;
+  height: 88rpx;
+  line-height: 1;
+  background-color: #5AA2E7!important;
+}
+.base-btn .top{
+  font-size:36rpx; 
+}
+.base-btn .bottom{
+  font-size:28rpx;
+}
+
+/* 教育、工作经历  */
+.education-history .weui-cells,.work-history .weui-cells{
+  margin-bottom:30rpx;
+}
+
+/* 经历列表 */
+.history-list-wrap{
+  padding-bottom:150rpx;
+}
+.history-item{
+  position: relative;
+  padding:30rpx;
+  margin-bottom: 30rpx;
+  background: #ffffff;
+  border-top:1rpx solid #d9d9d9;
+  border-bottom:1rpx solid #d9d9d9;
+  font-size:30rpx;
+}
+.history-item:last-child{
+  margin-bottom:0;
+}
+.history-item .fa{
+  position: absolute;
+  top:32rpx;
+  right:36rpx;
+  width:25rpx;
+  height: 32rpx;
+  color:#F96868;
+  overflow: visible;
+}
+.history-list-wrap .add-box{
+  display: flex;
+  align-items: center;
+  height: 88rpx;
+  padding-left:30rpx;
+  color: #5AA2E7;
+  font-size:28rpx;
+  background: #ffffff;
+  border-bottom:1rpx solid #d9d9d9;
+}
+.history-list-wrap .add-box .img{
+  width:36rpx;
+  height: 36rpx;
+  margin-right:30rpx;
+}
+.history-list-wrap .btn-area{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 30rpx;
+  position: fixed;
+  bottom:30rpx;
+  width:690rpx;
+  height: 90rpx;
+  z-index:2;
+}
+.btn-area .pre-btn{
+  width:326rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  color: #000000;
+  font-size: 36rpx;
+}
+.btn-area .next-btn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:326rpx;
+  height: 88rpx;
+  color: #ffffff;
+  font-size: 36rpx;
+  line-height: 1;
+  background-color: #5AA2E7;
+}
+.btn-area .next-btn .bottom{
+  font-size:28rpx;
+}
+/*  简历完成 */
+.resume-finish{
+  padding:104rpx 30rpx 0 30rpx;
+}
+.result-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.result-wrap .icon{
+  margin-bottom:50rpx;
+}
+.result-wrap .result-state{
+  font-size:40rpx;
+  margin-bottom: 76rpx;
+}
+.resume-finish .btn{
+  width:690rpx; 
+  height:88rpx;
+  line-height: 88rpx;
+  font-size:36rpx;
+  margin-bottom:30rpx;
+}
+.resume-finish .blue-btn{
+   background-color:#5AA2E7;
+}
+.resume-finish .gray-btn{
+   background-color:#FBFAFC;
+   color:#000000;
+}

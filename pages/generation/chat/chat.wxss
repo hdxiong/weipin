@@ -1,0 +1,279 @@
+@import "/template/chat/chat-input.wxss";
+@import "/template/chat/extra.wxss";
+@import '/template/defineModal/defineModal.wxss';
+
+.page-chat {
+  height: 100%;
+  margin-top: 64px;
+  overflow: hidden;
+}
+
+.contact-types {
+  position: fixed;
+  top: 65px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 62px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.type-item {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.type-item:nth-child(1) .img {
+  width: 22rpx;
+}
+
+.type-item:nth-child(2) .img {
+  width: 37rpx;
+}
+
+.type-item:nth-child(3) .img {
+  width: 27rpx;
+}
+
+.type-item .text {
+  font-size: 25rpx;
+  color: #333333;
+  margin-top: 16rpx;
+}
+
+.box-shaow-inset {
+  box-shadow: 0px 0px 8rpx 0px rgba(0, 0, 0, 0.1) inset;
+}
+
+/* 常用语 */
+
+.extra-phrase {
+  background: #fff;
+}
+
+.extra-phrase .phrase-list {
+  height: 370rpx;
+}
+
+.extra-phrase .phrase-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90rpx;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.extra-phrase .phrase-item .text {
+  width: 540rpx;
+}
+
+.extra-phrase .phrase-item .img {
+  width: 25rpx;
+  height: 25rpx;
+}
+
+.extra-phrase .btn-area {
+  height: 88rpx;
+  box-shadow: 0px 0px 8rpx 0px rgba(0, 0, 0, 0.1);
+}
+
+.extra-phrase .btn-area .btn-finish {
+  height: 100%;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #B2B2B2;
+}
+
+.extra-phrase .btn-add {
+  display: flex;
+  height: 100%;
+}
+
+.extra-phrase .btn-add .add-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.extra-phrase .btn-add .set-box {
+  width: 98rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1rpx solid #e5e5e5;
+  box-sizing: content-box;
+}
+
+.extra-phrase .btn-add .set-box .img {
+  width: 35rpx;
+  height: 33rpx;
+}
+
+.extra-phrase .btn-add .add-box .img {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 26rpx;
+}
+
+/* 表情 */
+
+.extra-emoji {
+  background: #fff;
+}
+
+.extra-emoji .swiper {
+  padding: 20rpx 20rpx 0;
+  height: 340rpx;
+}
+
+.extra-emoji .emoji-img {
+  padding: 10rpx;
+  margin-right: 18rpx;
+}
+
+.extra-emoji .emoji-img:nth-child(7n) {
+  margin-right: 0rpx;
+}
+
+.extra-emoji .send-box {
+  height: 70rpx;
+  text-align: right;
+}
+
+.extra-emoji .send-box .send-btn {
+  display: inline-block;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  background: #5cb3ff;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+/* scroll 聊天区域 */
+
+.scroll {
+  height: calc(100% - 112px);
+  margin-top: 62px;
+  background-color: #f8f8fc;
+  position: relative;
+  transition: bottom 0.3s;
+}
+
+.msg-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.msg-item .msg-info {
+  width: 100%;
+  display: flex;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.msg-item .msg-info.my-msg {
+  flex-direction: row-reverse;
+}
+
+.msg-item .avator-img {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin-left: 7px;
+  margin-right: 7px;
+  align-self:flex-end;
+}
+
+.msg-item .msg-box {
+  padding: 16rpx 20rpx;
+  max-width: 60%;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+}
+
+.msg-item .my-msg .msg-box {
+  background: #5cb3ff;
+  color: #fff;
+  border-radius:16rpx 16rpx 0px 16rpx;
+}
+.msg-item .other-msg .msg-box {
+  border-radius:16rpx 16rpx 16rpx 0px;
+  color: #666666;
+  background: #ebeef5;
+}
+.msg-func{
+  width:472rpx;
+  margin:0 auto;
+  background:rgba(255,255,255,1);
+  box-shadow:0px 0px 8rpx 0px rgba(0,0,0,0.1);
+  border-radius:16rpx;
+}
+.msg-func .func-info{
+  display: flex;
+  align-items: center;
+  padding:30rpx 30rpx 22rpx;
+}
+.msg-func .func-info .img{ 
+  width:64rpx;
+  height: 64rpx;
+  margin-right:20rpx;
+}
+.msg-func .func-info .func-content{
+  font-size: 28rpx;
+  color: #333333;
+  flex:1;
+}
+.msg-func .func-btns{
+  display: flex;
+
+}
+.msg-func .func-btns .btn{
+  flex:1;
+  line-height: 76rpx;
+  text-align: center;
+  font-size:24rpx;
+  color: #5CB3FF;
+}
+.msg-func .func-btns .copy{
+   text-align: left;
+   color: #999999;
+   padding-left:30rpx;
+}
+.color_gray{
+  color: #999999!important;
+}
+.func-tips{
+  margin:0 auto; 
+  font-size: 24rpx;
+  color: #999999;
+}
+.msg-info .msg-img{
+  width:198rpx;
+}
+.msg-info.my-msg .msg-img{
+  border-radius:24rpx 24rpx 0px 24rpx;
+}
+.msg-info.other-msg .msg-img{
+  border-radius:24rpx 24rpx 24rpx 0rpx;
+}
+.msg-box.has-emoji image{
+  width:54rpx;
+  height: 54rpx;
+}

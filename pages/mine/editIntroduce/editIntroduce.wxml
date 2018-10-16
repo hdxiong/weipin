@@ -1,0 +1,13 @@
+<header title="编辑自我介绍" showBack='1' position="fixed"></header>
+<view class="edit-introduce" style="margin-top:64px;">
+    <view class="form-title">我们很确信，你拥有独特的个性</view>
+    <view class="weui-cells weui-cells_after-title textarea-weui-cells">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="编辑自我介绍，告诉别人你是不同的" maxlength="1000" value="{{introContent}}" style="height: 3.3em" bindinput="operateTextarea" />
+            <view class="weui-textarea-counter">{{wordNumber}}/1000</view>
+        </view>
+      </view>
+    </view>
+     <button class="save-btn btn-w690" type="primary"  bindtap="save">完成</button>
+</view>

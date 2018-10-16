@@ -1,0 +1,33 @@
+page{
+  background-color: #fff;
+}
+.delivery-result{
+  padding:104rpx 30rpx 0 30rpx;
+}
+.result-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.result-wrap .icon{
+  margin-bottom:50rpx;
+}
+.result-wrap .result-state{
+  font-size:40rpx;
+  /* line-height: 40rpx; */
+  margin-bottom: 45rpx;
+}
+.result-wrap .result-tip{
+  text-align: center; 
+  margin-bottom:68rpx;
+}
+.return-btn{
+  width:690rpx; 
+  height:88rpx;
+  line-height: 88rpx;
+  font-size:36rpx;
+  background-color:#5AA2E7!important;
+}
+.result-wrap.result-two .result-tip{
+  color:#F96868;
+}

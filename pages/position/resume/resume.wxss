@@ -1,0 +1,63 @@
+
+.resume-create .title,.resume-import .title{
+  padding:38rpx 0rpx 24rpx 30rpx;
+  font-size:26rpx;
+  color: #999999;
+}
+.resume-create .create-types,.resume-import .platform-list{
+  border-top:1rpx solid #e5e5e5;
+  border-bottom:1rpx solid #e5e5e5;
+  background: #fff;
+}
+.resume-create .type,.resume-import .platform{
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  font-size:32rpx;
+  padding-left:30rpx;
+  padding-right:30rpx;
+}
+.resume-create .type .icon,.resume-import .platform .logo{
+  width:72rpx;
+  height:72rpx;
+  margin-right:20rpx;
+}
+.resume-create .type.code{
+  border-top: 1rpx solid #e5e5e5;
+}
+
+.resume-create .type.code .word{
+  display: flex;
+  flex-direction: column;
+
+}
+.resume-create .type.code .word .title{
+  padding:0;
+  font-size: 32rpx;
+  color: #000;
+}
+.resume-create .type.code .word .url{
+  font-size:26rpx;
+  color:#A9A9A9;
+}
+.resume-import .platform{
+  justify-content: space-between;
+  border-bottom:1rpx solid #e5e5e5;
+}
+.resume-import .form-id:last-child .platform{
+  border-bottom:none;
+}
+.resume-import .platform .left{
+  display: flex;
+  align-items: center;
+}
+.resume-import .platform .right{
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left:35rpx;
+  padding-right:35rpx;
+  border:1rpx solid #5AA2E7;
+  border-radius:8rpx;
+  font-size:26rpx;
+  color: #5AA2E7;
+}

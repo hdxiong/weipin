@@ -1,0 +1,15 @@
+<import src="/template/defineModal/defineModal.wxml" />
+
+<header title="编辑证书" showBack='1' position="fixed"></header>
+<view class="edit-skill" style="margin-top:64px;">
+    <view class="form-title">印证汗水与付出</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell skill-box">
+        <view class="skill" wx:for="{{qualifications}}" wx:key="{{index}}">{{item.qualificationName}} <icon class="icon" type="clear" size="15" data-index="{{index}}" catchtap="delSkill" /></view>
+        <view class="btn-add" catchtap="showModal">+ 添加</view>
+      </view>
+    </view>
+    <button class="save-btn btn-w690" type="primary"  bindtap="save">完成</button>
+</view>
+
+<template is="defineModal" data="{{...modal}}" />

@@ -1,0 +1,38 @@
+.position-title{
+  display: flex;
+  align-items: center;
+  /* height: 48rpx; */
+  margin-bottom: 6rpx;
+}
+.position-title .img{
+  width:56rpx;
+  height: 32rpx;
+  margin-right:10rpx;
+}
+.position-title .list{
+  flex:1;
+}
+.position-title .detail{
+   flex:1;
+}
+.position-tags{
+  display: flex;
+  margin-bottom: 6rpx;
+}
+.position-tags .tag{
+  height: 45rpx;
+  line-height: 45rpx;
+  padding-left:8rpx;
+  padding-right:8rpx;
+  background: rgba(245,245,245,1);
+  border-radius: 6rpx; 
+  margin-right:10rpx;
+  font-size:26rpx;
+  color: #999999;
+}
+.time-number{
+  display: flex;
+}
+.time-number .time{
+  margin-right:20rpx;
+}

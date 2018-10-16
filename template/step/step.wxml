@@ -1,0 +1,16 @@
+ 
+ 
+ <template name="step">
+ <view class="page-hd">
+ <view class="stepWrap">
+                <view  wx:for="{{['公司信息', '职位信息', '完成']}}" wx:key="index" class="step-item {{progress > index?'active':''}}">
+                  <view class="item-tail"></view>  
+                  <view class="step-item-icon">
+                    <text class="fa fa-check" wx:if="{{progress > index}}"></text>
+                    <text wx:if="{{progress <= index}}">{{ index + 1 }}</text>
+                  </view>
+                  <view class="step-item-name">{{ item }}</view>
+                </view>
+              </view>
+            </view>
+  </template>

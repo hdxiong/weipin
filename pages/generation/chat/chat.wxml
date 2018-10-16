@@ -1,0 +1,142 @@
+<import src="/template/defineModal/defineModal.wxml" />
+
+<header title="{{options.receiverNick}}" showBack='1' position="fixed" bind:backEvent="onBackEvent"></header>
+<view class="page-chat">
+  <!-- 换电话换微信等 -->
+  <view class="contact-types">
+    <view class="type-item" wx:if="{{phoneObj.senderhasPhone}}" catchtap='sendPhoneMessage'>
+      <image class="img" src="/images/icon_phone.png" mode="widthFix"></image>
+      <text class="text">{{phoneObj.activeRequest ? '请求中' : '换电话'}}</text>
+    </view>
+    <button class="remove-button-default-style type-item" open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber" wx:else>
+      <image class="img" src="/images/icon_phone.png" mode="widthFix"></image>
+      <text class="text">换电话</text>
+    </button>
+    <view class="type-item" catchtap='sendWechatMessage'>
+      <image class="img" src="/images/icon_wechat.png" mode="widthFix"></image>
+      <text class="text">{{wechatObj.activeRequest ? '请求中' : '换微信'}}</text>
+    </view>
+    <view class="type-item" catchtap='sendResumeMessage' wx:if="{{showResumeBtn}}">
+      <image class="img" src="/images/icon_file.png" mode="widthFix"></image>
+      <text class="text">{{options.isHr == 1 ? '求' : '投'}}简历</text>
+    </view>
+  </view>
+  <!-- 消息展示 -->
+  <scroll-view id="scroll" class="scroll" style="bottom:{{animateBottom}}px;" scroll-y  scroll-with-animation scroll-top="{{scrollTop}}" catchtap='clickScrollView'>
+    <view id="messageList">
+    <view class="msg-item" wx:for="{{messageList}}" wx:key="index" wx:if="{{item.msgType != -1}}">
+      <view class="msg-info {{item.isSender == 1 ? 'my-msg' : 'other-msg'}}" wx:if="{{item.msgType == 0}}">
+        <image class="avator-img" src="{{item.senderHeadImg}}"></image>
+        <view class="msg-box has-emoji" wx:if="{{item.hasEmoji}}">
+          <block wx:for="{{item.newMsgContent}}" wx:key="{{type}}" wx:for-item="cItem" wx:for-index="cIndex" >
+            <text wx:if="{{cItem.type == 'text'}}">{{cItem.text}}</text>
+            <image wx:if="{{cItem.type == 'image'}}" src="{{cItem.url}}"></image>
+          </block>
+        </view>
+        <view class="msg-box" wx:else>{{item.msgContent}}</view>
+      </view>
+      <view class="msg-info" wx:if="{{(item.msgType == 1 || item.msgType == 2 || item.msgType == 3 || item.msgType == 11 || item.msgType == 22) && item.isSender == 0}}">
+        <view class="msg-func">
+          <view class="func-info border_bottom">
+            <image class="img" src="/images/msg_phone.png" wx:if="{{item.msgType == 1 || item.msgType == 11}}"></image>
+            <image class="img" src="/images/msg_wechat.png" wx:if="{{item.msgType == 2 || item.msgType == 22}}"></image>
+            <image class="img" src="/images/msg_resume.png" wx:if="{{item.msgType == 3}}"></image>
+            <view class="func-content">
+              <rich-text nodes="{{item.msgContent}}"></rich-text>
+            </view>
+          </view>
+          <view class="func-btns" catchtap='agreeOrRefuse' data-id="{{item.id}}" data-isagree="{{item.isAgree}}">
+            <block wx:if="{{item.msgType == 1 || item.msgType == 2 || item.msgType == 3}}">        
+              <button class="remove-button-default-style btn " open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber2" wx:if="{{item.msgType == 1 && !phoneObj.senderhasPhone &&  (item.isAgree === -1)}}">同意</button>
+              <picker class="e-picker btn1 btn" catchchange="pickerChange" data-id="{{item.id}}" range="{{positionList}}" range-key='positionName' wx:elif="{{positionList && positionList.length>0 && item.isAgree == -1 && item.msgType == 3}}">同意</picker>
+              <view class="btn1 btn {{(item.isAgree === 1 || item.isAgree === 0)?'color_gray':''}}" data-msgtype="{{item.msgType}}" data-btntype='agree' wx:else>{{item.isAgree === 1 ? '已':''}}同意</view>
+              <view class="btn2 btn {{(item.isAgree === 1 || item.isAgree === 0)?'color_gray':''}}" data-msgtype="{{item.msgType}}" data-btntype='refuse'>{{item.isAgree === 0 ? '已':''}}拒绝</view>
+            </block>
+            <view class="btn" wx:if="{{item.msgType == 11}}" catchtap='makePhone' data-msgcontent="{{item.msgContent}}">拨号</view>
+            <view class="btn copy" wx:if="{{item.msgType == 22}}" catchtap='copyWechat' data-msgcontent="{{item.msgContent}}">复制微信号</view>
+          </view>
+        </view>
+      </view>
+       <view class="msg-info {{item.isSender == 1 ? 'my-msg' : 'other-msg'}}" wx:if="{{item.msgType == 5}}">
+        <image class="avator-img" src="{{item.senderHeadImg}}"></image>
+        <image class="msg-img" src="{{item.msgContent}}" mode='widthFix' catchtap='previewImageMessage' data-src="{{item.msgContent}}"></image>
+      </view>
+      <view class="msg-info" wx:if="{{(item.msgType == 8 && item.isSender == 1) || (item.msgType == 9 && item.isSender == 0)}}">
+        <view class="func-tips">{{item.msgContent}}</view>
+      </view>
+    </view>
+    </view>
+  </scroll-view>
+
+  <!-- 发消息区 -->
+  <view class="input-flex-column">
+    <view class="input-text-voice-super">
+      <view class="phrase" wx:if="{{!openPhrase || isFocus}}" catchtap='switchOpenPhrase'>常用语</view>
+      <image src="/images/icon_keyboard.png" class="extra-btn-style" wx:else catchtap='switchOpenPhrase'></image>
+
+      <input class="chat-input-style" maxlength="500" confirm-type="send" placeholder='新信息' value="{{textMessage}}" bindconfirm="chatInputSendTextMessage" bindfocus="chatInputBindFocusEvent"  bindinput="chatInputBindInputEvent"  />
+      <view class="press-style-opacity">
+        <text class="fa fa-smile-o {{!openEmoji || isFocus ? '' : 'open'}}" catchtap='switchOpenEmoji'></text>
+        <image class="icon-add" src="/images/icon_add.png" wx:if="{{!openImage || isFocus}}" catchtap='switchOpenImage'></image>
+        <image class="icon-add" src="/images/icon_close2.png" wx:else catchtap='switchOpenImage'></image>
+      </view>
+    </view>
+    <!-- 常用语 -->
+    <view class="extra-phrase box-shaow-inset" wx:if="{{openPhrase}}">
+      <scroll-view scroll-y class="phrase-list">
+        <view class="phrase-item border_bottom" wx:for="{{phraseList}}" wx:key="index">
+          <text class="text ell" catchtap='selectPhrase' data-content="{{item.content}}">{{item.content}}</text>
+          <block wx:if="{{editPhrase}}">
+            <image class="img" src="/images/icon_edit2.png" data-item="{{item}}" catchtap='modifyPhrase'></image>
+            <image class="img" src="/images/icon_close2.png" data-item="{{item}}" catchtap='deletePhrase'></image>
+          </block>
+        </view>
+      </scroll-view>
+      <view class="btn-area">
+        <view class="btn-finish" wx:if="{{editPhrase}}" catchtap='switchPhraseState'>完成</view>
+        <view class="btn-add" wx:else>
+          <view class="add-box" catchtap='newAddPhrase'>
+            <image class="img" src="/images/icon_add.png"></image>新增
+          </view>
+          <view class="set-box" catchtap='switchPhraseState'>
+            <image class="img" src="/images/icon_setting.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 表情 -->
+    <view class="extra-emoji box-shaow-inset" wx:if="{{openEmoji}}">
+      <swiper indicator-dots="true" class="swiper">
+        <block wx:for="12" wx:key="bIndex" wx:for-item="bItem" wx:for-index="bIndex">
+          <swiper-item class="swiper-item">
+            <image class="emoji-img" wx:for="{{emojiList}}" wx:key="{{index}}" wx:if="{{bIndex == 0 && index <= 20 }}" src="{{item.baseUrl}}" data-ekey="{{item.ekey}}" style="width:64rpx;height:64rpx;" catchtap="selectEmoji"></image>
+            <image class="emoji-img" wx:for="{{emojiList}}" wx:key="{{index}}" wx:if="{{bIndex == 1 && index > 20 }}" src="{{item.baseUrl}}" data-ekey="{{item.ekey}}" style="width:64rpx;height:64rpx;" catchtap="selectEmoji"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="send-box border_top">
+        <text class="send-btn" catchtap='sendEmojiMessage'>发送</text>
+      </view>
+    </view>
+    <!-- 选择图片 -->
+    <view class="extra-super box-shaow-inset" wx:if="{{openImage}}">
+
+      <view class="flex-column" style="width: 25%" bindtap="openCameraOrAlbum" data-stype="camera">
+        <view class="img-box">
+          <image class="extra-image-size" src="/images/icon_xj.jpg" />
+        </view>
+        <text class="extra-text-size">打开相机</text>
+      </view>
+      <view class="flex-column" style="width: 25%" bindtap="openCameraOrAlbum" data-stype="album">
+        <view class="img-box">
+          <image class="extra-image-size" src="/images/icon_xc.png" />
+        </view>
+        <text class="extra-text-size">打开图片</text>
+      </view>
+    </view>
+
+  </view>
+</view>
+<template is="defineModal" data="{{...modal}}" />
+<phrase-dialog wx:if="{{showPhraseModal}}"  phrase="{{currentPhrase}}" bind:close="onClosePhrase" bind:save="onPhraseSave" bind:send="onPhraseSend"></phrase-dialog>
+

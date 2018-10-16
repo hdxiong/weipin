@@ -1,0 +1,14 @@
+<header title="访问用户" showBack='1' position="fixed"></header>
+<view class="page-avatar">
+  <view class="avatar-list-wrap">
+    <view class="list-hd">
+      历史访问<text class="text">{{visitNum}}</text>次
+    </view>
+    <view class="list-bd">
+      <view class="avatar-box" wx:for="{{allVisitors}}" wx:key="index" catchtap='linkTo' data-item="{{item}}">
+        <image class="img" src="{{item.headImgUrl}}" wx:if="{{item.headImgUrl}}"></image>
+        <image class="img" src="/images/default-portrait.jpg" wx:else></image>
+      </view>
+    </view>
+  </view>
+</view>

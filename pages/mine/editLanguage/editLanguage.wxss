@@ -1,0 +1,32 @@
+ @import '/style/editResume.wxss'; 
+ @import '/template/toast/toast.wxss';
+
+.weui-cells{
+  margin-bottom: 24rpx;
+}
+.level-input .weui-label::before{
+  display: none;
+}
+.delete{
+  font-size: 34rpx;
+  color: #F96868;
+}
+.add-btn{
+  display: flex;
+  align-items: center;
+  height: 110rpx;
+  padding-left:25rpx;
+  margin-top:24rpx;
+  background-color: #ffffff;
+  border-top:1rpx solid #e5e5e5;
+  border-bottom:1rpx solid #e5e5e5;
+  color: #5AA2E7;
+  font-size:32rpx;
+ 
+}
+.add-btn .icon-cross{
+  margin-right:30rpx;
+}
+.save-btn{
+   margin-bottom: 100rpx;
+}

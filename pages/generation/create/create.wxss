@@ -1,0 +1,136 @@
+@import "/template/share/share.wxss";
+.page-create {
+  margin-top: 64px;
+}
+
+.create-list {
+  margin: 0 20rpx;
+  padding-top:40rpx; 
+}
+
+.create-item {
+  width: 710rpx;
+  height: 486rpx;
+  box-shadow: 0rpx 2rpx 10rpx 0rpx rgba(211, 211, 211, 0.68);
+  border-radius: 8rpx;
+  margin-bottom: 40rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.create-item .img {
+  width:360rpx;
+  margin-bottom: 64rpx;
+}
+
+.create-item .btn {
+  width:520rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #fff;
+  border-radius: 8rpx;
+  background-color: #5CB3FF;
+}
+
+.has-create-item{
+  position: relative;
+  width:710rpx;
+  height:486rpx;
+  box-shadow:0rpx 2rpx 10rpx 0rpx rgba(211,211,211,0.68);
+  border-radius: 8rpx;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40rpx;
+  background: #fff;
+}
+
+.has-create-item .bg-img{
+  position: absolute;
+  left:0rpx;
+  top:0rpx;
+  width:144rpx;
+}
+
+.has-create-item .title{
+  font-size: 32rpx;
+  line-height: 1.4;
+  color: #333333;
+  padding:64rpx 0 48rpx;
+}
+
+.has-create-item .img-box{
+  width:160rpx;
+  height:160rpx;
+  border-radius: 50%;
+  margin-bottom: 65rpx;
+  overflow: hidden;
+  background: #F2F6FC;
+}
+
+.has-create-item .qr-img{
+  width:160rpx;
+  height:160rpx;
+  border-radius: 50%;
+}
+
+.has-create-item .download,.has-create-item .set{
+  width:140rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  background:rgba(255,255,255,1);
+  border-radius:8rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #5CB3FF;
+  border:1rpx solid #5CB3FF;
+}
+
+.has-create-item .btns{
+   display: flex;
+}
+
+.has-create-item .btns .download{
+  margin-right: 24rpx;
+}
+
+.has-create-item .btns .position{
+  height: 64rpx;
+  line-height: 64rpx;
+  margin-right: 24rpx;
+  padding-left:32rpx;
+  padding-right:32rpx;
+  border-radius: 8rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background: #5CB3FF;
+}
+
+.apply-btns .btn{
+    padding:8rpx 26rpx;
+}
+.apply-btns .btn:last-child{
+  margin-left: 50rpx;
+}
+.has-create-item .apply-btns .btn{
+  font-size: 32rpx;
+  background:#5CB3FF;
+  color: #ffffff;
+  border-radius: 8rpx;
+}
+.has-create-item .apply-btns .btn.btn-gray{
+  background: rgb(197, 195, 195);
+}
+
+/* 分享图 */
+.firstCanvas{
+  position: absolute;
+  top: -100%;
+  left: -1000%;   
+}  

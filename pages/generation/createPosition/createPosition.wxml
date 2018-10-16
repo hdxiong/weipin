@@ -1,0 +1,193 @@
+<import src="/template/footer/footer.wxml" />
+
+<wxs module="helper">
+  var idxOf = function(array, item) {
+    return array.indexOf(item);
+  }
+ 
+  module.exports.indexOf = idxOf;
+</wxs>
+<header title="创建职位" showBack='1' position="fixed"></header>
+<view class="generation-page" style="margin-top:80px;">
+  <view class="create-step-one {{addMargin ? 'add-margin' : ''}}" wx:if="{{step == 1}}">
+    <view class="gene-section">
+      <view class="weui-cells__title">
+        <view class="title">职位名称</view>
+        <view class="info">{{quickSpPosition.positionName.length}}/20</view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd border_bottom">
+            <input class="weui-input" placeholder="请填写职位名称" placeholder-class="input-placeholder"  maxlength='20' value="{{quickSpPosition.positionName}}" data-prop="quickSpPosition.positionName" bindinput="operateInput" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="gene-section">
+      <view class="weui-cells__title">
+        <view class="title">工作城市</view>
+        <view class="info"></view>
+      </view>
+      <view class="weui-cell__bd picker-inner__bd" style="background-color:#fff;">
+         <picker mode="region"  bindchange="bindRegionChange" value="{{quickSpPosition.workCityArray}}" custom-item="{{customItem}}">
+            <view class="picker-inner border_bottom">
+                <text class="placeholder" wx:if="{{quickSpPosition.workCityArray.length == 0}}">请选择工作城市</text> 
+                <text class="place" wx:else>{{quickSpPosition.workCityArray[0]}}  {{quickSpPosition.workCityArray[1]}}</text>   
+              <text class="arrow-right"></text>
+            </view>
+          </picker>
+      </view>
+    </view>
+    <view class="gene-section">
+      <view class="weui-cells__title">
+        <view class="title">工作经验</view>
+        <view class="info"></view>
+      </view>
+      <view class="weui-cell__bd picker-inner__bd" style="background-color:#fff;">
+        <picker bindchange="bindAccountChange" data-index="1" value="{{workYearIndex}}" range="{{workYears}}" range-key="label">
+          <view class="industry picker-inner border_bottom">
+            <text class="placeholder" wx:if="{{quickSpPosition.workYear == 0}}">请选择工作经验</text>
+            <text class="value" wx:else>{{workYears[workYearIndex].label}}</text>
+            <text class="arrow-right"></text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="gene-section">
+      <view class="weui-cells__title">
+        <view class="title">学历要求</view>
+        <view class="info"></view>
+      </view>
+      <view class="weui-cell__bd picker-inner__bd" style="background-color:#fff;">
+        <picker bindchange="bindAccountChange" data-index="2" value="{{educationIndex}}" range="{{educations}}" range-key="label">
+          <view class="industry picker-inner border_bottom">
+            <text class="placeholder" wx:if="{{quickSpPosition.educationRequire == 0}}">请选择学历</text>
+            <text class="value" wx:else>{{educations[educationIndex].label}}</text>
+            <text class="arrow-right"></text>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class='weui-flex'>
+    <view class='weui-flex__item'> 
+        <view class="gene-section lower-salary ">
+          <view class="weui-cells__title">
+            <view class="title">薪酬下限</view>         
+          </view>
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input border_bottom">
+              <view class="weui-cell__bd">
+                <input class="weui-input" type="digit" placeholder-class="input-placeholder"  value="{{quickSpPosition.positionSalaryLowest}}" data-prop="quickSpPosition.positionSalaryLowest" bindinput="operateInput" />
+              </view>
+              <view class="weui-cell__ft">
+                  <view>K</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        </view>
+        <view class='weui-flex__item'>
+          <view class="gene-section  upper-salary">
+            <view class="weui-cells__title">
+              <view class="title">薪酬上限</view>
+              <!-- <view class="info" catchtap='radioChange'>
+                <view class="radio-box">
+                  <icon type="success_no_circle" wx:if='{{isThousandUnits}}' size="12" color="#5AA2E7"></icon>
+                </view>
+                <view style='line-height:24rpx;'>面议</view>
+              </view> -->
+            </view>
+            <view class="weui-cells weui-cells_after-title">
+              <view class="weui-cell weui-cell_input border_bottom">
+                <view class="weui-cell__bd">
+                  <input class="weui-input" type="digit" placeholder-class="input-placeholder" value="{{quickSpPosition.positionSalaryHighest}}" data-prop="quickSpPosition.positionSalaryHighest" bindinput="operateInput" />
+                </view>
+                <view class="weui-cell__ft">
+                    <view>K</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class='weui-flex__item'>
+           <view class="gene-section  upper-salary">
+            <view class="weui-cells__title">
+              <view class="title"></view>
+              <view class="info" catchtap='radioChange'>
+                <view class="radio-box">
+                  <icon type="success_no_circle" wx:if='{{isThousandUnits}}' size="12" color="#5AA2E7"></icon>
+                </view>
+                <view style='line-height:24rpx;'>面议</view>
+              </view>
+            </view>
+            </view>
+        </view>
+        
+    </view>
+    <view class="gene-section job-description">
+      <view class="weui-cells__title">
+        <view class="title">职位描述</view>
+        <view class="info">{{quickSpPosition.positionDesc.length}}/500</view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__bd">
+             <textarea class="weui-textarea" placeholder-class="input-placeholder" placeholder="请填写职位描述"  maxlength='500' value="{{quickSpPosition.positionDesc}}" data-prop="quickSpPosition.positionDesc" bindinput="operateInput" bindfocus="taFocus" bindblur="taBlur"></textarea> 
+            
+          </view>
+        </view>
+      </view>
+    </view>
+    <button class="next-btn {{!quickSpPosition.positionName || !quickSpPosition.workCityArray.length || (!quickSpPosition.positionSalaryLowest && !isThousandUnits) || (!quickSpPosition.positionSalaryHighest && !isThousandUnits) || !quickSpPosition.positionDesc ? 'btn-disabled' : ''}}" type="primary" disabled='{{!quickSpPosition.positionName || !quickSpPosition.workCityArray.length || (!quickSpPosition.positionSalaryLowest && !isThousandUnits) || (!quickSpPosition.positionSalaryHighest && !isThousandUnits) || !quickSpPosition.positionDesc}}' catchtap='nextStep'>下一步</button>
+  </view>
+  <view class="create-step-two" wx:else>
+    <view class="gene-section position-type-section border_bottom">
+      <view class="weui-cells__title">
+        <view class="title">职位性质</view>
+        <view class="info" catchtap='selectPositionType'>
+            <text class="full-time {{quickSpPosition.positionType == 1 ? 'active' : ''}}" data-pt='1'>全职</text>
+            <text class="part-time {{quickSpPosition.positionType == 2 ? 'active' : ''}}" data-pt='2'>兼职</text>
+        </view>
+      </view>
+      <!-- <view class="weui-cells weui-cells_after-title" style="background-color:#fff;">
+        <picker bindchange="bindAccountChange" data-index="3" value="{{positionTypeIndex}}" range="{{positionTypes}}" range-key="label">
+          <view class="industry picker-inner border_bottom">
+            <text class="placeholder" wx:if="{{quickSpPosition.positionType == 0}}">请选择职位性质</text>
+            <text class="value" wx:else>{{positionTypes[positionTypeIndex].label}}</text>
+            <text class="arrow-right"></text>
+          </view>
+        </picker>
+      </view> -->
+    </view>
+    <view class="gene-section">
+      <view class="weui-cells__title">
+        <view class="title">招聘人数<text style="font-size:20rpx;">(不填写默认为不限)</text></view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input border_bottom">
+          <view class="weui-cell__bd">
+            <input class="weui-input" type="number" placeholder="请填写招聘人数" placeholder-class="input-placeholder"  value="{{quickSpPosition.posiNum}}" data-prop="quickSpPosition.posiNum" bindinput="operateInput" />
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="gene-section job-highlights">
+      <view class="weui-cells__title">
+        <view class="title">职位亮点</view>
+      </view>
+      <view class="weui-cell__bd">
+          <view class="tag-list">
+            <view  wx:for="{{positionTags}}" class="tag {{helper.indexOf(positionTagIdArray,item.id)>-1 ? 'tag-check' : ''}}" wx:key="index" data-item="{{item}}" catchtap='chooseHeightlight'>{{item.name}}</view>
+          </view>
+      </view>
+    </view>
+    <form class="form" report-submit="true" bindsubmit="preStep">
+      <button class="pre-btn btn-w690" type="default" form-type='submit'>上一步</button> 
+    </form>
+    <form class="form" report-submit="true" bindsubmit="save">
+      <button class="save-btn btn-w690" type="primary" form-type='submit'>完成</button>
+    </form>
+  </view>
+<!-- 页脚 -->
+<template is="footer" />
+</view>

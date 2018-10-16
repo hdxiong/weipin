@@ -1,0 +1,78 @@
+/* pages/mine/share/share.wxss */
+@import "/template/position/position.wxss";
+
+page{
+  margin-top:64px;
+}
+.collect{
+  display: flex;
+  align-items: center;
+  color: #5aa2e7;
+  height: 100rpx;
+  border-bottom: 1rpx solid #E5E5E5;
+  background-color: #ffffff;
+  margin-top: 32rpx;
+}
+.collect-wrap{
+  padding-left: 30rpx;
+  background-color: #fff;
+  margin-bottom: 24rpx;
+}
+.collect image{
+  width: 34rpx;
+  height: 34rpx;
+  /* margin-left: 31rpx; */
+  line-height: 100rpx;
+}
+.collect text{
+  font-size: 34rpx;
+  margin-left: 15rpx;
+  line-height: 100rpx;
+}
+.position{
+  padding: 30rpx 30px 30px 0;
+  background-color: #ffffff;
+  border-bottom:1rpx solid #e5e5e5;
+}
+.collect-wrap .position:last-child{
+  border-bottom: none;
+}
+.personal_stars{
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.position-title{
+  position: relative;
+}
+.more_position{
+  position: fixed;
+  bottom: 20rpx;
+  left: 0;
+  width: 100%;
+}
+.position_btn{
+  padding:0 40rpx;
+}
+.position_btn button{
+  background-color: #5aa2e7;
+  color: #fff;
+}
+.no_collect{
+  text-align: center;
+  font-size: 28rpx;
+  color: #999999;
+  padding-top: 300rpx;
+}
+.no_collect image{
+  width: 320rpx;
+  margin-bottom: 78rpx;
+}
+.collect-wrap .position-title .title{
+  width:580rpx;
+
+}
